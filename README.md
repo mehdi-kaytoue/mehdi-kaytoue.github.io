@@ -27,4 +27,5 @@ Associate Professor in Computer Science on sabbatical leave from INSA Lyon since
 
 
 
-> [!NOTE] The views expressed here are solely my own and do not represent those of my employer or organization.
+> [!NOTE]
+> The views expressed here are solely my own and do not represent those of my employer or organization.
