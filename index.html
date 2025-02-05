@@ -214,6 +214,8 @@ window.onscroll = function () {
   .tags {
         display: flex;
         gap: 5px;
+        flex-wrap: wrap; /* Ensures wrapping */
+
     }
     .tag {
         background: #007acc;
@@ -223,6 +225,18 @@ window.onscroll = function () {
         font-size: 12px;
         font-weight: bold;
         white-space: nowrap;
+    }
+
+      /* Responsive Fix for Small Screens */
+      @media (max-width: 480px) {
+        .tags {
+            flex-direction: column; /* Stack tags vertically on small screens */
+            align-items: flex-start;
+        }
+        .tag {
+            width: fit-content; /* Ensures tags don't stretch too much */
+            font-size: 14px; /* Slightly larger for better readability */
+        }
     }
 </style>
 
