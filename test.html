@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mehdi Kaytoue – Associate Professor in Computer Science</title>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" />
+  <!-- Icons (PDF)-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header with a subtle gradient */
+    header {
+  background: linear-gradient(135deg, #eff7fc, #d7eaf5);
+      color: #333;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.6em;
+    }
+    header p {
+      margin: 10px 0;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    header a {
+      color: #007acc;
+    }
+    /* Navigation Bar with a softer background */
+    nav {
+      background: #f1f2f3;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    nav a {
+      color: #333;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #007acc;
+    }
+    /* Main Content Container with rounded corners */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative; /* Ensures child elements use absolute positioning - to have the pic in the container */
+
+    }
+    /* Sections */
+    section {
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      color: #007acc;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #007acc;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+ 
+    h3 {
+      margin-top: 20px;
+      color: #007acc;
+    }
+    ul {
+      list-style: disc inside;
+      padding-left: 20px;
+    }
+    li {
+      margin: 10px 0;
+      line-height: 1.2;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    
+    .csl-left-margin {
+      float: left;
+      font-weight: bold;
+      margin-right: 10px; /* Optional spacing */
+    }
+
+.profile-pic {
+    position: absolute;
+    top: 10px; /* Adjust distance from top */
+    right: 10px; /* Adjust distance from right */
+    width: 120px; /* Adjust size */
+    height: 120px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures only the center is displayed */
+}
+
+
+
+
+#goTopBtn {
+    position: fixed;
+    bottom: 20px; /* Keeps it at the bottom */
+    right: 20px; /* Aligns it to the right */
+    background-color: #007acc; /* Nice blue color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+#goTopBtn:hover {
+    background-color: #005a99;
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+#goTopBtn:active {
+    transform: scale(0.95);
+}
+
+  </style>
+
+ <script> 
+/***** BUTTON TO GO TO THE TOP */
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Hide Button Until User Scrolls Down */
+window.onscroll = function () {
+    let goTopBtn = document.getElementById("goTopBtn");
+    if (document.documentElement.scrollTop > 200) {
+        goTopBtn.style.display = "block";
+    } else {
+        goTopBtn.style.display = "none";
+    }
+};
+</script>
+
+<script> /* hide & show thesis details */
+  function toggleThesisDetails() {
+      let container = document.querySelector('.thesis-container');
+      container.classList.toggle('active');
+  }
+</script>
+  
+
+<style> /* For the thesis details */
+  .thesis-container {
+     
+      margin: 10px auto;
+      padding: 15px;
+      background: #eef7ff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+  }
+  .thesis-header {
+      font-size: 16px;
+      color: #005a99;
+      display: flex;
+      align-items: center;
+  }
+  .arrow {
+      font-size: 14px;
+      margin-right: 5px;
+      transition: transform 0.3s ease;
+  }
+  .thesis-details {
+      display: none;
+      margin-top: 10px;
+  }
+  .thesis-container.active .thesis-details {
+      display: block;
+  }
+  .thesis-container.active .arrow {
+      transform: rotate(90deg);
+  }
+  .tags {
+        display: flex;
+        gap: 5px;
+    }
+    .tag {
+        background: #007acc;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+</style>
+
+
+</head>
+<body>
+  <!-- Page Header -->
+  <header>
+    <h1>Mehdi Kaytoue</h1>
+    <p>
+      <strong>Associate Professor in Computer Science</strong> at
+      <a href="https://www.insa-lyon.fr" target="_blank">INSA Lyon</a> |
+      PhD (2011) - HDR (2020)
+    </p>
+    <p>
+      Currently on sabbatical from INSA Lyon, working as R&I Manager at 
+      <a href="https://www.infologic-copilote.fr/innovation/recherche-innovation/" target="_blank">Infologic</a> since February 2018.
+    </p>
+    <p>
+      <a href="https://scholar.google.com/citations?user=TXvlWggAAAAJ&hl=fr" target="_blank">Google Scholar</a> •
+      <a href="https://dblp.org/pid/00/6831.html" target="_blank">DBLP</a> •
+      <a href="https://orcid.org/0000-0002-1569-5242" target="_blank">ORCID</a> •
+      <a href="https://cv.hal.science/mehdi-kaytoue" target="_blank">HAL</a> •
+      <a href="https://www.researchgate.net/profile/Mehdi-Kaytoue" target="_blank">ResearchGate</a> •
+      <a href="https://www.webofscience.com/wos/author/record/AAI-6146-2020" target="_blank">Publons</a> •
+      <a href="https://www.linkedin.com/in/mehdikaytoue/" target="_blank">LinkedIn</a> •
+      <a href="https://twitter.com/MehdiKaytoue" target="_blank">X (Twitter)</a>
+    </p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about-me">About Me</a>
+    <a href="#biography">Biography</a>
+    <a href="#research-interests">Research Interests</a>
+    <a href="#phd-supervision-alumni">PhD Supervision &amp; Alumni</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main Content Container -->
+  <div class="container">
+    <!-- About Me Section -->
+    <section id="about-me">
+      !!! PAGE UNDER CONSTRUCTION  !!! 
+      <h2>About Me</h2>
+          <img src="profile.jpg"  alt="Profile Picture" class="profile-pic">
+      <p>
+        I am an Associate Professor in Computer Science with a passion for research, teaching, and industrial collaboration. My work lies at the intersection of data mining, formal concept analysis, and machine learning. I have been actively involved in exploring innovative algorithms to extract meaningful patterns from complex datasets, with applications ranging from gene expression analysis to graph mining.
+      </p>
+    </section>
+</div>
+    <div class="container">
+    <!-- Biography Section -->
+    <section id="biography">
+      <h2>Biography</h2>
+      <ul>
+        <li><strong>2020:</strong> Habilitation (<em>Habilitation à diriger des recherche</em>) in Computer Science at Université de Lyon (INSA Lyon).</li>
+        <li><strong>2018 – Present:</strong> On sabbatical leave from INSA Lyon and serving as R&I Manager at the French software company <a href="https://www.infologic-copilote.fr/innovation/recherche-innovation/" target="_blank">Infologic</a>.</li>
+        <li><strong>2012 – 2018:</strong> Associate Professor in Computer Science at Institut National des Sciences Appliquées (INSA), Lyon, France.</li>
+        <li><strong>2011 – 2012:</strong> Postdoctoral Fellow in Computer Science at Universidade Federal de Minas Gerais, Brazil.</li>
+        <li><strong>2007 – 2011:</strong> PhD in Computer Science from Université de Lorraine, Nancy, France.</li>
+        <li><strong>2004 – 2007:</strong> Bachelor's/Master's in Computer Science from Université de Strasbourg, France.</li>
+        <li><strong>2002 – 2004:</strong> Diploma in Software Engineering (DUT) from Université Robert Schuman, Strasbourg, France.</li>
+        <li><strong>2002:</strong> Scientific Baccalaureate, Lycée Marie Curie, Strasbourg, France.</li>
+      </ul>
+    </section>
+
+    <!-- Research Interests Section -->
+    <section id="research-interests">
+      <h2>Research Interests</h2>
+      <ul>
+       <!-- <li><strong>Data Mining &amp; Knowledge Discovery:</strong> Developing algorithms to extract patterns and insights from large-scale datasets.</li>
+        <li><strong>Formal Concept Analysis:</strong> Employing mathematical frameworks for data structuring and visualization.</li>
+        <li><strong>Pattern Mining:</strong> Creating innovative methods to uncover complex patterns and dependencies.</li>
+        <li><strong>Graph &amp; Network Analysis:</strong> Studying dynamic graph structures to understand relationships and changes over time.</li>
+        <li><strong>Machine Learning Applications:</strong> Integrating pattern mining techniques with learning algorithms to tackle real-world challenges.</li>
+        -->
+      </ul>
+    </section>
+
+    <!-- PhD Supervision & Alumni Section -->
+    <section id="phd-supervision-alumni">
+      <h2>PhD Supervision &amp; Alumni</h2>
+      <h3>Ongoing Supervisions</h3>
+    
+      <h3>Completed Supervisions</h3>
+    
+      <div class="thesis-container">
+        <div class="thesis-header" onclick="toggleThesisDetails()">
+            <span class="arrow">▶</span> <strong>Guillaume Bosc, PhD: Anytime discovery of a diverse set of patterns with
+              Monte Carlo tree search (2017)</strong>&nbsp;<a href="https://theses.hal.science/tel-02001153v1/document" target="_blank"><i class="fa-solid fa-file-pdf" style="color: red;"></i></a></div>
+              <span class="tags">
+                <span class="tag">Subgroup Discovery</span>
+                <span class="tag">Monte Carlo Tree Search</span>
+                <span class="tag">Classification Rules</span>
+                <span class="tag">Scents & odors perception</span>
+            </span>
+        
+        <div class="thesis-details">
+            <p><strong>Supervisors :</strong> Jean-François Boulicaut, Mehdi Kaytoue</p>
+            <h4>Jury</h4>
+            <ul>
+                <li><strong>President:</strong> Sihem Amer Yahia</li>
+                <li><strong>Examiners:</strong> Moustafa Bensafi, Peter Flach, Katharina Morik</li>
+                <li><strong>Reviewers:</strong> Toon Calders, Tristan Cazenave</li>
+            </ul>
+            <h4><a href="https://theses.fr/2017LYSEI074">More details on theses.fr</a></h4>
+            <h4>Abstract</h4>
+            <p style="text-align: justify;">The discovery of patterns that strongly distinguish one class label from another is still a challenging data-mining task. Subgroup Discovery (SD) is a formal pattern mining framework that enables the construction of intelligible classifiers, and, most importantly, to elicit interesting hypotheses from the data. However, SD still faces two major issues: (i) how to define appropriate quality measures to characterize the interestingness of a pattern; (ii) how to select an accurate heuristic search technique when exhaustive enumeration of the pattern space is unfeasible. The first issue has been tackled by Exceptional Model Mining (EMM) for discovering patterns that cover tuples that locally induce a model substantially different from the model of the whole dataset. The second issue has been studied in SD and EMM mainly with the use of beam-search strategies and genetic algorithms for discovering a pattern set that is non-redundant, diverse and of high quality. In this thesis, we argue that the greedy nature of most such previous approaches produces pattern sets that lack diversity. Consequently, we formally define pattern mining as a game and solve it with Monte Carlo Tree Search (MCTS), a recent technique mainly used for games and planning problems in artificial intelligence. Contrary to traditional sampling methods, MCTS leads to an any-time pattern mining approach without assumptions on either the quality measure or the data. It converges to an exhaustive search if given enough time and memory. The exploration/exploitation trade-off allows the diversity of the result set to be improved considerably compared to existing heuristics. We show that MCTS quickly finds a diverse pattern set of high quality in our application in neurosciences. We also propose and validate a new quality measure especially tuned for imbalanced multi-label data.</p>
+        </div>
+    </div>
+     
+    
+
+
+    </section>
+</div>
+<div class="container">
+    <!-- Publications Section -->
+    <section id="publications">
+
+<h2>Publications</h2>
+
+<nav>
+  <a href="#journal">Journals</a>
+  <a href="#conf">Conferences</a>
+  <a href="#book">Book chapters</a>
+  <a href="#editorial">Editorship</a>
+  <a href="#national">National conferences, Workshops</a>
+  <a href="#demos">Demos</a>
+</nav>
+
+<h3 id="journal">International journals</h3>
+
+<!--Zotero export -->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">R. Mathonat, D. Nurbakova, J.-F. Boulicaut, et M. Kaytoue, «&nbsp;Anytime mining of sequential discriminative patterns in labeled sequences&nbsp;», <i>Knowl. Inf. Syst.</i>, vol. 63, n<sup>o</sup> 2, p. 439‑476, 2021, doi: <a href="https://doi.org/10.1007/S10115-020-01523-7">10.1007/S10115-020-01523-7</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2FS10115-020-01523-7&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Anytime%20mining%20of%20sequential%20discriminative%20patterns%20in%20labeled%20sequences&amp;rft.jtitle=Knowl.%20Inf.%20Syst.&amp;rft.volume=63&amp;rft.issue=2&amp;rft.aufirst=Romain&amp;rft.aulast=Mathonat&amp;rft.au=Romain%20Mathonat&amp;rft.au=Diana%20Nurbakova&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2021&amp;rft.pages=439%E2%80%93476&amp;rft.spage=439&amp;rft.epage=476"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, S. O. Kuznetsov, et M. Kaytoue, «&nbsp;On pattern setups and pattern multistructures&nbsp;», <i>Int. J. Gen. Syst.</i>, vol. 49, n<sup>o</sup> 8, p. 785‑818, 2020, doi: <a href="https://doi.org/10.1080/03081079.2020.1806832">10.1080/03081079.2020.1806832</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1080%2F03081079.2020.1806832&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=On%20pattern%20setups%20and%20pattern%20multistructures&amp;rft.jtitle=Int.%20J.%20Gen.%20Syst.&amp;rft.volume=49&amp;rft.issue=8&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2020&amp;rft.pages=785%E2%80%93818&amp;rft.spage=785&amp;rft.epage=818"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">C. C. Licon <i>et al.</i>, «&nbsp;Chemical features mining provides new descriptive structure-odor relationships&nbsp;», <i>PLOS Computational Biology</i>, vol. 15, n<sup>o</sup> 4, p. e1006945, avr. 2019, doi: <a href="https://doi.org/10.1371/journal.pcbi.1006945">10.1371/journal.pcbi.1006945</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1371%2Fjournal.pcbi.1006945&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Chemical%20features%20mining%20provides%20new%20descriptive%20structure-odor%20relationships&amp;rft.jtitle=PLOS%20Computational%20Biology&amp;rft.stitle=PLOS%20Computational%20Biology&amp;rft.volume=15&amp;rft.issue=4&amp;rft.aufirst=Carmen%20C.&amp;rft.aulast=Licon&amp;rft.au=Carmen%20C.%20Licon&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mohammed%20Sabri&amp;rft.au=Marylou%20Mantel&amp;rft.au=Arnaud%20Fournel&amp;rft.au=Caroline%20Bushdid&amp;rft.au=Jerome%20Golebiowski&amp;rft.au=Celine%20Robardet&amp;rft.au=Marc%20Plantevit&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Moustafa%20Bensafi&amp;rft.date=2019-04-25&amp;rft.pages=e1006945&amp;rft.issn=1553-7358&amp;rft.language=en"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, J.-F. Boulicaut, C. Raïssi, et M. Kaytoue, «&nbsp;Anytime discovery of a diverse set of patterns with Monte Carlo tree search&nbsp;», <i>Data Min. Knowl. Discov.</i>, vol. 32, n<sup>o</sup> 3, p. 604‑650, 2018, doi: <a href="https://doi.org/10.1007/s10618-017-0547-5">10.1007/s10618-017-0547-5</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2Fs10618-017-0547-5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Anytime%20discovery%20of%20a%20diverse%20set%20of%20patterns%20with%20Monte%20Carlo%20tree%20search&amp;rft.jtitle=Data%20Min.%20Knowl.%20Discov.&amp;rft.volume=32&amp;rft.issue=3&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2018&amp;rft.pages=604%E2%80%93650&amp;rft.spage=604&amp;rft.epage=650"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, V. Codocedo, M. Kaytoue, et A. Napoli, «&nbsp;Characterizing approximate-matching dependencies in formal concept analysis with pattern structures&nbsp;», <i>Discrete Applied Mathematics</i>, vol. 249, p. 18‑27, 2018, doi: <a href="https://doi.org/10.1016/j.dam.2018.03.073">10.1016/j.dam.2018.03.073</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1016%2Fj.dam.2018.03.073&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Characterizing%20approximate-matching%20dependencies%20in%20formal%20concept%20analysis%20with%20pattern%20structures&amp;rft.jtitle=Discrete%20Applied%20Mathematics&amp;rft.volume=249&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.date=2018&amp;rft.pages=18%E2%80%9327&amp;rft.spage=18&amp;rft.epage=27"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, M. Plantevit, A. Zimmermann, A. A. Bendimerad, et C. Robardet, «&nbsp;Exceptional contextual subgraph mining&nbsp;», <i>Machine Learning</i>, vol. 106, n<sup>o</sup> 8, p. 1171‑1211, 2017, doi: <a href="https://doi.org/10.1007/s10994-016-5598-0">10.1007/s10994-016-5598-0</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2Fs10994-016-5598-0&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Exceptional%20contextual%20subgraph%20mining&amp;rft.jtitle=Machine%20Learning&amp;rft.volume=106&amp;rft.issue=8&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=Albrecht%20Zimmermann&amp;rft.au=Ahmed%20Anes%20Bendimerad&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.date=2017&amp;rft.pages=1171%E2%80%931211&amp;rft.spage=1171&amp;rft.epage=1211"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, P. Tan, J.-F. Boulicaut, C. Raïssi, et M. Kaytoue, «&nbsp;A Pattern Mining Approach to Study Strategy Balance in RTS Games&nbsp;», <i>IEEE Trans. Comput. Intellig. and AI in Games</i>, vol. 9, n<sup>o</sup> 2, p. 123‑132, 2017, doi: <a href="https://doi.org/10.1109/TCIAIG.2015.2511819">10.1109/TCIAIG.2015.2511819</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FTCIAIG.2015.2511819&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=A%20Pattern%20Mining%20Approach%20to%20Study%20Strategy%20Balance%20in%20RTS%20Games&amp;rft.jtitle=IEEE%20Trans.%20Comput.%20Intellig.%20and%20AI%20in%20Games&amp;rft.volume=9&amp;rft.issue=2&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Philip%20Tan&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2017&amp;rft.pages=123%E2%80%93132&amp;rft.spage=123&amp;rft.epage=132"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, Y. Pitarch, M. Plantevit, et C. Robardet, «&nbsp;What effects topological changes in dynamic graphs? - Elucidating relationships between vertex attributes and the graph structure&nbsp;», <i>Social Netw. Analys. Mining</i>, vol. 5, n<sup>o</sup> 1, p. 55:1-55:17, 2015, doi: <a href="https://doi.org/10.1007/s13278-015-0294-9">10.1007/s13278-015-0294-9</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2Fs13278-015-0294-9&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=What%20effects%20topological%20changes%20in%20dynamic%20graphs%3F%20-%20Elucidating%20relationships%20between%20vertex%20attributes%20and%20the%20graph%20structure&amp;rft.jtitle=Social%20Netw.%20Analys.%20Mining&amp;rft.volume=5&amp;rft.issue=1&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Yoann%20Pitarch&amp;rft.au=Marc%20Plantevit&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.date=2015&amp;rft.pages=55%3A1%E2%80%9355%3A17&amp;rft.spage=55%3A1&amp;rft.epage=55%3A17"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, J. Macko, et A. Napoli, «&nbsp;Biclustering meets triadic concept analysis&nbsp;», <i>Ann. Math. Artif. Intell.</i>, vol. 70, n<sup>o</sup> 1‑2, p. 55‑79, 2014, doi: <a href="https://doi.org/10.1007/s10472-013-9379-1">10.1007/s10472-013-9379-1</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2Fs10472-013-9379-1&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Biclustering%20meets%20triadic%20concept%20analysis&amp;rft.jtitle=Ann.%20Math.%20Artif.%20Intell.&amp;rft.volume=70&amp;rft.issue=1-2&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Juraj%20Macko&amp;rft.au=Amedeo%20Napoli&amp;rft.date=2014&amp;rft.pages=55%E2%80%9379&amp;rft.spage=55&amp;rft.epage=79"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, M. Kaytoue, et A. Napoli, «&nbsp;Characterizing functional dependencies in formal concept analysis with pattern structures&nbsp;», <i>Ann. Math. Artif. Intell.</i>, vol. 72, n<sup>o</sup> 1‑2, p. 129‑149, 2014, doi: <a href="https://doi.org/10.1007/s10472-014-9400-3">10.1007/s10472-014-9400-3</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2Fs10472-014-9400-3&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Characterizing%20functional%20dependencies%20in%20formal%20concept%20analysis%20with%20pattern%20structures&amp;rft.jtitle=Ann.%20Math.%20Artif.%20Intell.&amp;rft.volume=72&amp;rft.issue=1-2&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.date=2014&amp;rft.pages=129%E2%80%93149&amp;rft.spage=129&amp;rft.epage=149"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, A. Napoli, et S. Duplessis, «&nbsp;Mining gene expression data with pattern structures in formal concept analysis&nbsp;», <i>Inf. Sci.</i>, vol. 181, n<sup>o</sup> 10, p. 1989‑2001, 2011, doi: <a href="https://doi.org/10.1016/j.ins.2010.07.007">10.1016/j.ins.2010.07.007</a>.
+    <a href="https://hal.science/hal-00541100v1/document" target="_blank"><i class="fa-solid fa-file-pdf" style="color: red;"></i></a>
+    <a href="https://dblp.org/rec/journals/isci/KaytoueKND11.html?view=bibtex" target="_blank"><i class="fa-solid fa-book" style="color: darkblue;"></i></a>
+    </div>
+  </div>
+</div>
+<!-- End Zotero export -->        
+
+<h3 id="conf">International Conferences</h3>
+
+<!-- debut zotero -->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Y. Remil, A. Bendimerad, R. Mathonat, C. Raïssi, and M. Kaytoue, ‘DeepLSH: Deep Locality-Sensitive Hash Learning for Fast and Efficient Near-Duplicate Crash Report Detection’, in <i>Proceedings of the 46th IEEE/ACM International Conference on Software Engineering, ICSE 2024, Lisbon, Portugal, April 14-20, 2024</i>, ACM, 2024, p. 198:1-198:12. doi: <a href="https://doi.org/10.1145/3597503.3639146">10.1145/3597503.3639146</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1145%2F3597503.3639146&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=DeepLSH%3A%20Deep%20Locality-Sensitive%20Hash%20Learning%20for%20Fast%20and%20Efficient%20Near-Duplicate%20Crash%20Report%20Detection&amp;rft.btitle=Proceedings%20of%20the%2046th%20IEEE%2FACM%20International%20Conference%20on%20Software%20Engineering%2C%20ICSE%202024%2C%20Lisbon%2C%20Portugal%2C%20April%2014-20%2C%202024&amp;rft.publisher=ACM&amp;rft.aufirst=Youcef&amp;rft.aulast=Remil&amp;rft.au=Youcef%20Remil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Romain%20Mathonat&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2024&amp;rft.pages=198%3A1%E2%80%93198%3A12&amp;rft.spage=198%3A1&amp;rft.epage=198%3A12"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Bendimerad, R. Mathonat, Y. Remil, and M. Kaytoue, ‘Exploiting Formal Concept Analysis for Data Modeling in Data Lakes’, in <i>Conceptual Knowledge Structures - First International Joint Conference, CONCEPTS 2024, Cádiz, Spain, September 9-13, 2024, Proceedings</i>, I. P. Cabrera, S. Ferré, and S. A. Obiedkov, Eds., in Lecture Notes in Computer Science, vol. 14914. Springer, 2024, pp. 270–285. doi: <a href="https://doi.org/10.1007/978-3-031-67868-4_18">10.1007/978-3-031-67868-4_18</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-031-67868-4_18&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Exploiting%20Formal%20Concept%20Analysis%20for%20Data%20Modeling%20in%20Data%20Lakes&amp;rft.btitle=Conceptual%20Knowledge%20Structures%20-%20First%20International%20Joint%20Conference%2C%20CONCEPTS%202024%2C%20C%C3%A1diz%2C%20Spain%2C%20September%209-13%2C%202024%2C%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Anes&amp;rft.aulast=Bendimerad&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Romain%20Mathonat&amp;rft.au=Youcef%20Remil&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Inma%20P.%20Cabrera&amp;rft.au=S%C3%A9bastien%20Ferr%C3%A9&amp;rft.au=Sergei%20A.%20Obiedkov&amp;rft.date=2024&amp;rft.pages=270%E2%80%93285&amp;rft.spage=270&amp;rft.epage=285"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, V. Codocedo, M. Kaytoue, and A. Napoli, ‘Dependency Covers from an FCA Perspective’, in <i>Proceedings of the 11th International Workshop ‘What can FCA do for Artificial Intelligence?’ co-located with the 32nd International Joint Conference on Artificial Intelligence (IJCAI 2023), Macao, S.A.R. China; August 20, 2023</i>, S. O. Kuznetsov, A. Napoli, and S. Rudolph, Eds., in CEUR Workshop Proceedings, vol. 3489. CEUR-WS.org, 2023, pp. 57–68. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-3489/paper6.pdf">https://ceur-ws.org/Vol-3489/paper6.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Dependency%20Covers%20from%20an%20FCA%20Perspective&amp;rft.btitle=Proceedings%20of%20the%2011th%20International%20Workshop%20%22What%20can%20FCA%20do%20for%20Artificial%20Intelligence%3F%22%20co-located%20with%20the%2032nd%20International%20Joint%20Conference%20on%20Artificial%20Intelligence%20(IJCAI%202023)%2C%20Macao%2C%20S.A.R.%20China%3B%20August%2020%2C%202023&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sebastian%20Rudolph&amp;rft.date=2023&amp;rft.pages=57%E2%80%9368&amp;rft.spage=57&amp;rft.epage=68"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Y. Remil, A. Bendimerad, M. Plantevit, C. Robardet, and M. Kaytoue, ‘Interpretable Summaries of Black Box Incident Triaging with Subgroup Discovery’, in <i>8th IEEE International Conference on Data Science and Advanced Analytics, DSAA 2021, Porto, Portugal, October 6-9, 2021</i>, IEEE, 2021, pp. 1–10. doi: <a href="https://doi.org/10.1109/DSAA53316.2021.9564164">10.1109/DSAA53316.2021.9564164</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA53316.2021.9564164&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Interpretable%20Summaries%20of%20Black%20Box%20Incident%20Triaging%20with%20Subgroup%20Discovery&amp;rft.btitle=8th%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202021%2C%20Porto%2C%20Portugal%2C%20October%206-9%2C%202021&amp;rft.publisher=IEEE&amp;rft.aufirst=Youcef&amp;rft.aulast=Remil&amp;rft.au=Youcef%20Remil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Marc%20Plantevit&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2021&amp;rft.pages=1%E2%80%9310&amp;rft.spage=1&amp;rft.epage=10"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Y. Remil, A. Bendimerad, R. Mathonat, P. Chaleat, and M. Kaytoue, ‘“What makes my queries slow?”: Subgroup Discovery for SQL Workload Analysis’, in <i>36th IEEE/ACM International Conference on Automated Software Engineering, ASE 2021, Melbourne, Australia, November 15-19, 2021</i>, IEEE, 2021, pp. 642–652. doi: <a href="https://doi.org/10.1109/ASE51524.2021.9678915">10.1109/ASE51524.2021.9678915</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FASE51524.2021.9678915&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=%22What%20makes%20my%20queries%20slow%3F%22%3A%20Subgroup%20Discovery%20for%20SQL%20Workload%20Analysis&amp;rft.btitle=36th%20IEEE%2FACM%20International%20Conference%20on%20Automated%20Software%20Engineering%2C%20ASE%202021%2C%20Melbourne%2C%20Australia%2C%20November%2015-19%2C%202021&amp;rft.publisher=IEEE&amp;rft.aufirst=Youcef&amp;rft.aulast=Remil&amp;rft.au=Youcef%20Remil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Romain%20Mathonat&amp;rft.au=Philippe%20Chaleat&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2021&amp;rft.pages=642%E2%80%93652&amp;rft.spage=642&amp;rft.epage=652"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">R. Mathonat, D. Nurbakova, J.-F. Boulicaut, and M. Kaytoue, ‘Anytime Subgroup Discovery in High Dimensional Numerical Data’, in <i>8th IEEE International Conference on Data Science and Advanced Analytics, DSAA 2021, Porto, Portugal, October 6-9, 2021</i>, IEEE, 2021, pp. 1–10. doi: <a href="https://doi.org/10.1109/DSAA53316.2021.9564223">10.1109/DSAA53316.2021.9564223</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA53316.2021.9564223&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Anytime%20Subgroup%20Discovery%20in%20High%20Dimensional%20Numerical%20Data&amp;rft.btitle=8th%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202021%2C%20Porto%2C%20Portugal%2C%20October%206-9%2C%202021&amp;rft.publisher=IEEE&amp;rft.aufirst=Romain&amp;rft.aulast=Mathonat&amp;rft.au=Romain%20Mathonat&amp;rft.au=Diana%20Nurbakova&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2021&amp;rft.pages=1%E2%80%9310&amp;rft.spage=1&amp;rft.epage=10"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">R. Mathonat, J.-F. Boulicaut, and M. Kaytoue, ‘A Behavioral Pattern Mining Approach to Model Player Skills in Rocket League’, in <i>IEEE Conference on Games, CoG 2020, Osaka, Japan, August 24-27, 2020</i>, IEEE, 2020, pp. 267–274. doi: <a href="https://doi.org/10.1109/COG47356.2020.9231739">10.1109/COG47356.2020.9231739</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FCOG47356.2020.9231739&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=A%20Behavioral%20Pattern%20Mining%20Approach%20to%20Model%20Player%20Skills%20in%20Rocket%20League&amp;rft.btitle=IEEE%20Conference%20on%20Games%2C%20CoG%202020%2C%20Osaka%2C%20Japan%2C%20August%2024-27%2C%202020&amp;rft.publisher=IEEE&amp;rft.aufirst=Romain&amp;rft.aulast=Mathonat&amp;rft.au=Romain%20Mathonat&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2020&amp;rft.pages=267%E2%80%93274&amp;rft.spage=267&amp;rft.epage=274"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">R. Mathonat, D. Nurbakova, J.-F. Boulicaut, and M. Kaytoue, ‘SeqScout: Using a Bandit Model to Discover Interesting Subgroups in Labeled Sequences’, in <i>2019 IEEE International Conference on Data Science and Advanced Analytics, DSAA 2019, Washington, DC, USA, October 5-8, 2019</i>, L. Singh, R. D. D. Veaux, G. Karypis, F. Bonchi, and J. Hill, Eds., IEEE, 2019, pp. 81–90. doi: <a href="https://doi.org/10.1109/DSAA.2019.00022">10.1109/DSAA.2019.00022</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA.2019.00022&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=SeqScout%3A%20Using%20a%20Bandit%20Model%20to%20Discover%20Interesting%20Subgroups%20in%20Labeled%20Sequences&amp;rft.btitle=2019%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202019%2C%20Washington%2C%20DC%2C%20USA%2C%20October%205-8%2C%202019&amp;rft.publisher=IEEE&amp;rft.aufirst=Romain&amp;rft.aulast=Mathonat&amp;rft.au=Romain%20Mathonat&amp;rft.au=Diana%20Nurbakova&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Lisa%20Singh&amp;rft.au=Richard%20D.%20De%20Veaux&amp;rft.au=George%20Karypis&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Jennifer%20Hill&amp;rft.date=2019&amp;rft.pages=81%E2%80%9390&amp;rft.spage=81&amp;rft.epage=90"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">V. Codocedo, J. Baixeries, M. Kaytoue, and A. Napoli, ‘Sampling Representation Contexts with Attribute Exploration’, in <i>Formal Concept Analysis - 15th International Conference, ICFCA 2019, Frankfurt, Germany, June 25-28, 2019, Proceedings</i>, D. Cristea, F. L. Ber, and B. Sertkaya, Eds., in Lecture Notes in Computer Science, vol. 11511. Springer, 2019, pp. 307–314. doi: <a href="https://doi.org/10.1007/978-3-030-21462-3_20">10.1007/978-3-030-21462-3_20</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-030-21462-3_20&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Sampling%20Representation%20Contexts%20with%20Attribute%20Exploration&amp;rft.btitle=Formal%20Concept%20Analysis%20-%2015th%20International%20Conference%2C%20ICFCA%202019%2C%20Frankfurt%2C%20Germany%2C%20June%2025-28%2C%202019%2C%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=V%C3%ADctor&amp;rft.aulast=Codocedo&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Diana%20Cristea&amp;rft.au=Florence%20Le%20Ber&amp;rft.au=Baris%20Sertkaya&amp;rft.date=2019&amp;rft.pages=307%E2%80%93314&amp;rft.spage=307&amp;rft.epage=314"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, A. Belfodil, and M. Kaytoue, ‘Mining Formal Concepts Using Implications Between Items’, in <i>Formal Concept Analysis - 15th International Conference, ICFCA 2019, Frankfurt, Germany, June 25-28, 2019, Proceedings</i>, D. Cristea, F. L. Ber, and B. Sertkaya, Eds., in Lecture Notes in Computer Science, vol. 11511. Springer, 2019, pp. 173–190. doi: <a href="https://doi.org/10.1007/978-3-030-21462-3_12">10.1007/978-3-030-21462-3_12</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-030-21462-3_12&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Formal%20Concepts%20Using%20Implications%20Between%20Items&amp;rft.btitle=Formal%20Concept%20Analysis%20-%2015th%20International%20Conference%2C%20ICFCA%202019%2C%20Frankfurt%2C%20Germany%2C%20June%2025-28%2C%202019%2C%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Adnene%20Belfodil&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Diana%20Cristea&amp;rft.au=Florence%20Le%20Ber&amp;rft.au=Baris%20Sertkaya&amp;rft.date=2019&amp;rft.pages=173%E2%80%93190&amp;rft.spage=173&amp;rft.epage=190"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil <i>et al.</i>, ‘FSSD - A Fast and Efficient Algorithm for Subgroup Set Discovery’, in <i>2019 IEEE International Conference on Data Science and Advanced Analytics, DSAA 2019, Washington, DC, USA, October 5-8, 2019</i>, L. Singh, R. D. D. Veaux, G. Karypis, F. Bonchi, and J. Hill, Eds., IEEE, 2019, pp. 91–99. doi: <a href="https://doi.org/10.1109/DSAA.2019.00023">10.1109/DSAA.2019.00023</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA.2019.00023&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=FSSD%20-%20A%20Fast%20and%20Efficient%20Algorithm%20for%20Subgroup%20Set%20Discovery&amp;rft.btitle=2019%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202019%2C%20Washington%2C%20DC%2C%20USA%2C%20October%205-8%2C%202019&amp;rft.publisher=IEEE&amp;rft.aufirst=Adnene&amp;rft.aulast=Belfodil&amp;rft.au=Adnene%20Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Philippe%20Lamarre&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=Lisa%20Singh&amp;rft.au=Richard%20D.%20De%20Veaux&amp;rft.au=George%20Karypis&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Jennifer%20Hill&amp;rft.date=2019&amp;rft.pages=91%E2%80%9399&amp;rft.spage=91&amp;rft.epage=99"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[12]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">V. Codocedo, J. Baixeries, M. Kaytoue, and A. Napoli, ‘Characterizing Covers of Functional Dependencies using FCA’, in <i>Proceedings of the Fourteenth International Conference on Concept Lattices and Their Applications, CLA 2018, Olomouc, Czech Republic, June 12-14, 2018</i>, D. I. Ignatov and L. Nourine, Eds., in CEUR Workshop Proceedings, vol. 2123. CEUR-WS.org, 2018, pp. 279–290. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-2123/paper23.pdf">https://ceur-ws.org/Vol-2123/paper23.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Characterizing%20Covers%20of%20Functional%20Dependencies%20using%20FCA&amp;rft.btitle=Proceedings%20of%20the%20Fourteenth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20CLA%202018%2C%20Olomouc%2C%20Czech%20Republic%2C%20June%2012-14%2C%202018&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=V%C3%ADctor&amp;rft.aulast=Codocedo&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Dmitry%20I.%20Ignatov&amp;rft.au=Lhouari%20Nourine&amp;rft.date=2018&amp;rft.pages=279%E2%80%93290&amp;rft.spage=279&amp;rft.epage=290"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[13]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, S. O. Kuznetsov, and M. Kaytoue, ‘Pattern Setups and Their Completions’, in <i>Proceedings of the Fourteenth International Conference on Concept Lattices and Their Applications, CLA 2018, Olomouc, Czech Republic, June 12-14, 2018</i>, D. I. Ignatov and L. Nourine, Eds., in CEUR Workshop Proceedings, vol. 2123. CEUR-WS.org, 2018, pp. 243–253. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-2123/paper20.pdf">https://ceur-ws.org/Vol-2123/paper20.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Pattern%20Setups%20and%20Their%20Completions&amp;rft.btitle=Proceedings%20of%20the%20Fourteenth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20CLA%202018%2C%20Olomouc%2C%20Czech%20Republic%2C%20June%2012-14%2C%202018&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Dmitry%20I.%20Ignatov&amp;rft.au=Lhouari%20Nourine&amp;rft.date=2018&amp;rft.pages=243%E2%80%93253&amp;rft.spage=243&amp;rft.epage=253"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[14]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, A. Belfodil, and M. Kaytoue, ‘Anytime Subgroup Discovery in Numerical Domains with Guarantees’, in <i>Machine Learning and Knowledge Discovery in Databases - European Conference, ECML PKDD 2018, Dublin, Ireland, September 10-14, 2018, Proceedings, Part II</i>, M. Berlingerio, F. Bonchi, T. Gärtner, N. Hurley, and G. Ifrim, Eds., in Lecture Notes in Computer Science, vol. 11052. Springer, 2018, pp. 500–516. doi: <a href="https://doi.org/10.1007/978-3-030-10928-8_30">10.1007/978-3-030-10928-8_30</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-030-10928-8_30&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Anytime%20Subgroup%20Discovery%20in%20Numerical%20Domains%20with%20Guarantees&amp;rft.btitle=Machine%20Learning%20and%20Knowledge%20Discovery%20in%20Databases%20-%20European%20Conference%2C%20ECML%20PKDD%202018%2C%20Dublin%2C%20Ireland%2C%20September%2010-14%2C%202018%2C%20Proceedings%2C%20Part%20II&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Adnene%20Belfodil&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Michele%20Berlingerio&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Thomas%20G%C3%A4rtner&amp;rft.au=Neil%20Hurley&amp;rft.au=Georgiana%20Ifrim&amp;rft.date=2018&amp;rft.pages=500%E2%80%93516&amp;rft.spage=500&amp;rft.epage=516"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[15]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Q. Labernia, V. Codocedo, C. Robardet, and M. Kaytoue, ‘Mining the Lattice of Binary Classifiers for Identifying Duplicate Labels in Behavioral Data’, in <i>Advances in Artificial Intelligence: From Theory to Practice - 30th International Conference on Industrial Engineering and Other Applications of Applied Intelligent Systems, IEA/AIE 2017, Arras, France, June 27-30, 2017, Proceedings, Part II</i>, S. Benferhat, K. Tabia, and M. Ali, Eds., in Lecture Notes in Computer Science, vol. 10351. Springer, 2017, pp. 12–21. doi: <a href="https://doi.org/10.1007/978-3-319-60045-1_2">10.1007/978-3-319-60045-1_2</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-60045-1_2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20the%20Lattice%20of%20Binary%20Classifiers%20for%20Identifying%20Duplicate%20Labels%20in%20Behavioral%20Data&amp;rft.btitle=Advances%20in%20Artificial%20Intelligence%3A%20From%20Theory%20to%20Practice%20-%2030th%20International%20Conference%20on%20Industrial%20Engineering%20and%20Other%20Applications%20of%20Applied%20Intelligent%20Systems%2C%20IEA%2FAIE%202017%2C%20Arras%2C%20France%2C%20June%2027-30%2C%202017%2C%20Proceedings%2C%20Part%20II&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Quentin&amp;rft.aulast=Labernia&amp;rft.au=Quentin%20Labernia&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Salem%20Benferhat&amp;rft.au=Karim%20Tabia&amp;rft.au=Moonis%20Ali&amp;rft.date=2017&amp;rft.pages=12%E2%80%9321&amp;rft.spage=12&amp;rft.epage=21"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[16]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">V. Codocedo, G. Bosc, M. Kaytoue, J.-F. Boulicaut, and A. Napoli, ‘A Proposition for Sequence Mining Using Pattern Structures’, in <i>Formal Concept Analysis - 14th International Conference, ICFCA 2017, Rennes, France, June 13-16, 2017, Proceedings</i>, K. Bertet, D. Borchmann, P. Cellier, and S. Ferré, Eds., in Lecture Notes in Computer Science, vol. 10308. Springer, 2017, pp. 106–121. doi: <a href="https://doi.org/10.1007/978-3-319-59271-8_7">10.1007/978-3-319-59271-8_7</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-59271-8_7&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=A%20Proposition%20for%20Sequence%20Mining%20Using%20Pattern%20Structures&amp;rft.btitle=Formal%20Concept%20Analysis%20-%2014th%20International%20Conference%2C%20ICFCA%202017%2C%20Rennes%2C%20France%2C%20June%2013-16%2C%202017%2C%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=V%C3%ADctor&amp;rft.aulast=Codocedo&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Karell%20Bertet&amp;rft.au=Daniel%20Borchmann&amp;rft.au=Peggy%20Cellier&amp;rft.au=S%C3%A9bastien%20Ferr%C3%A9&amp;rft.date=2017&amp;rft.pages=106%E2%80%93121&amp;rft.spage=106&amp;rft.epage=121"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[17]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, S. O. Kuznetsov, C. Robardet, and M. Kaytoue, ‘Mining Convex Polygon Patterns with Formal Concept Analysis’, in <i>Proceedings of the Twenty-Sixth International Joint Conference on Artificial Intelligence, IJCAI 2017, Melbourne, Australia, August 19-25, 2017</i>, C. Sierra, Ed., ijcai.org, 2017, pp. 1425–1432. doi: <a href="https://doi.org/10.24963/IJCAI.2017/197">10.24963/IJCAI.2017/197</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.24963%2FIJCAI.2017%2F197&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Convex%20Polygon%20Patterns%20with%20Formal%20Concept%20Analysis&amp;rft.btitle=Proceedings%20of%20the%20Twenty-Sixth%20International%20Joint%20Conference%20on%20Artificial%20Intelligence%2C%20IJCAI%202017%2C%20Melbourne%2C%20Australia%2C%20August%2019-25%2C%202017&amp;rft.publisher=ijcai.org&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Carles%20Sierra&amp;rft.date=2017&amp;rft.pages=1425%E2%80%931432&amp;rft.spage=1425&amp;rft.epage=1432"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[18]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">V. Codocedo, J. Baixeries, M. Kaytoue, and A. Napoli, ‘Characterization of Order-like Dependencies with Formal Concept Analysis’, in <i>Proceedings of the Thirteenth International Conference on Concept Lattices and Their Applications, Moscow, Russia, July 18-22, 2016</i>, M. Huchard and S. O. Kuznetsov, Eds., in CEUR Workshop Proceedings, vol. 1624. CEUR-WS.org, 2016, pp. 123–134. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1624/paper10.pdf">https://ceur-ws.org/Vol-1624/paper10.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Characterization%20of%20Order-like%20Dependencies%20with%20Formal%20Concept%20Analysis&amp;rft.btitle=Proceedings%20of%20the%20Thirteenth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Moscow%2C%20Russia%2C%20July%2018-22%2C%202016&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=V%C3%ADctor&amp;rft.aulast=Codocedo&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Marianne%20Huchard&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.date=2016&amp;rft.pages=123%E2%80%93134&amp;rft.spage=123&amp;rft.epage=134"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[19]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">O. Cavadenti, V. Codocedo, J.-F. Boulicaut, and M. Kaytoue, ‘What Did I Do Wrong in My MOBA Game? Mining Patterns Discriminating Deviant Behaviours’, in <i>2016 IEEE International Conference on Data Science and Advanced Analytics, DSAA 2016, Montreal, QC, Canada, October 17-19, 2016</i>, IEEE, 2016, pp. 662–671. doi: <a href="https://doi.org/10.1109/DSAA.2016.75">10.1109/DSAA.2016.75</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA.2016.75&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=What%20Did%20I%20Do%20Wrong%20in%20My%20MOBA%20Game%3F%20Mining%20Patterns%20Discriminating%20Deviant%20Behaviours&amp;rft.btitle=2016%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202016%2C%20Montreal%2C%20QC%2C%20Canada%2C%20October%2017-19%2C%202016&amp;rft.publisher=IEEE&amp;rft.aufirst=Olivier&amp;rft.aulast=Cavadenti&amp;rft.au=Olivier%20Cavadenti&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2016&amp;rft.pages=662%E2%80%93671&amp;rft.spage=662&amp;rft.epage=671"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[20]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc <i>et al.</i>, ‘Local Subgroup Discovery for Eliciting and Understanding New Structure-Odor Relationships’, in <i>Discovery Science - 19th International Conference, DS 2016, Bari, Italy, October 19-21, 2016, Proceedings</i>, T. Calders, M. Ceci, and D. Malerba, Eds., in Lecture Notes in Computer Science, vol. 9956. 2016, pp. 19–34. doi: <a href="https://doi.org/10.1007/978-3-319-46307-0_2">10.1007/978-3-319-46307-0_2</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-46307-0_2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Local%20Subgroup%20Discovery%20for%20Eliciting%20and%20Understanding%20New%20Structure-Odor%20Relationships&amp;rft.btitle=Discovery%20Science%20-%2019th%20International%20Conference%2C%20DS%202016%2C%20Bari%2C%20Italy%2C%20October%2019-21%2C%202016%2C%20Proceedings&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=J%C3%A9r%C3%B4me%20Golebiowski&amp;rft.au=Moustafa%20Bensafi&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Marc%20Plantevit&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Toon%20Calders&amp;rft.au=Michelangelo%20Ceci&amp;rft.au=Donato%20Malerba&amp;rft.date=2016&amp;rft.pages=19%E2%80%9334&amp;rft.spage=19&amp;rft.epage=34"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[21]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, V. Codocedo, A. Buzmakov, J. Baixeries, S. O. Kuznetsov, and A. Napoli, ‘Pattern Structures and Concept Lattices for Data Mining and Knowledge Processing’, in <i>Machine Learning and Knowledge Discovery in Databases - European Conference, ECML PKDD 2015, Porto, Portugal, September 7-11, 2015, Proceedings, Part III</i>, A. Bifet, M. May, B. Zadrozny, R. Gavaldà, D. Pedreschi, F. Bonchi, J. S. Cardoso, and M. Spiliopoulou, Eds., in Lecture Notes in Computer Science, vol. 9286. Springer, 2015, pp. 227–231. doi: <a href="https://doi.org/10.1007/978-3-319-23461-8_19">10.1007/978-3-319-23461-8_19</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-23461-8_19&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Pattern%20Structures%20and%20Concept%20Lattices%20for%20Data%20Mining%20and%20Knowledge%20Processing&amp;rft.btitle=Machine%20Learning%20and%20Knowledge%20Discovery%20in%20Databases%20-%20European%20Conference%2C%20ECML%20PKDD%202015%2C%20Porto%2C%20Portugal%2C%20September%207-11%2C%202015%2C%20Proceedings%2C%20Part%20III&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Aleksey%20Buzmakov&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Albert%20Bifet&amp;rft.au=Michael%20May&amp;rft.au=Bianca%20Zadrozny&amp;rft.au=Ricard%20Gavald%C3%A0&amp;rft.au=Dino%20Pedreschi&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Jaime%20S.%20Cardoso&amp;rft.au=Myra%20Spiliopoulou&amp;rft.date=2015&amp;rft.pages=227%E2%80%93231&amp;rft.spage=227&amp;rft.epage=231"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[22]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">P. Houdyer, A. Zimmermann, M. Kaytoue, M. Plantevit, J. Mitchell, and C. Robardet, ‘Gazouille: Detecting and Illustrating Local Events from Geolocalized Social Media Streams’, in <i>Machine Learning and Knowledge Discovery in Databases - European Conference, ECML PKDD 2015, Porto, Portugal, September 7-11, 2015, Proceedings, Part III</i>, A. Bifet, M. May, B. Zadrozny, R. Gavaldà, D. Pedreschi, F. Bonchi, J. S. Cardoso, and M. Spiliopoulou, Eds., in Lecture Notes in Computer Science, vol. 9286. Springer, 2015, pp. 276–280. doi: <a href="https://doi.org/10.1007/978-3-319-23461-8_29">10.1007/978-3-319-23461-8_29</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-23461-8_29&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Gazouille%3A%20Detecting%20and%20Illustrating%20Local%20Events%20from%20Geolocalized%20Social%20Media%20Streams&amp;rft.btitle=Machine%20Learning%20and%20Knowledge%20Discovery%20in%20Databases%20-%20European%20Conference%2C%20ECML%20PKDD%202015%2C%20Porto%2C%20Portugal%2C%20September%207-11%2C%202015%2C%20Proceedings%2C%20Part%20III&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Pierre&amp;rft.aulast=Houdyer&amp;rft.au=Pierre%20Houdyer&amp;rft.au=Albrecht%20Zimmermann&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=Joseph%20Mitchell&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Albert%20Bifet&amp;rft.au=Michael%20May&amp;rft.au=Bianca%20Zadrozny&amp;rft.au=Ricard%20Gavald%C3%A0&amp;rft.au=Dino%20Pedreschi&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Jaime%20S.%20Cardoso&amp;rft.au=Myra%20Spiliopoulou&amp;rft.date=2015&amp;rft.pages=276%E2%80%93280&amp;rft.spage=276&amp;rft.epage=280"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[23]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">O. Cavadenti, V. Codocedo, J.-F. Boulicaut, and M. Kaytoue, ‘When cyberathletes conceal their game: Clustering confusion matrices to identify avatar aliases’, in <i>2015 IEEE International Conference on Data Science and Advanced Analytics, DSAA 2015, Campus des Cordeliers, Paris, France, October 19-21, 2015</i>, IEEE, 2015, pp. 1–10. doi: <a href="https://doi.org/10.1109/DSAA.2015.7344824">10.1109/DSAA.2015.7344824</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FDSAA.2015.7344824&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=When%20cyberathletes%20conceal%20their%20game%3A%20Clustering%20confusion%20matrices%20to%20identify%20avatar%20aliases&amp;rft.btitle=2015%20IEEE%20International%20Conference%20on%20Data%20Science%20and%20Advanced%20Analytics%2C%20DSAA%202015%2C%20Campus%20des%20Cordeliers%2C%20Paris%2C%20France%2C%20October%2019-21%2C%202015&amp;rft.publisher=IEEE&amp;rft.aufirst=Olivier&amp;rft.aulast=Cavadenti&amp;rft.au=Olivier%20Cavadenti&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.date=2015&amp;rft.pages=1%E2%80%9310&amp;rft.spage=1&amp;rft.epage=10"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[24]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Nascimento <i>et al.</i>, ‘Modeling and Analyzing the Video Game Live-Streaming Community’, in <i>9th Latin American Web Congress, LA-WEB 2014, Ouro Preto, Minas Gerais, Brazil, 22-24 October, 2014</i>, J. M. Almeida, Á. R. P. Jr, R. Baeza-Yates, and F. Benevenuto, Eds., IEEE Computer Society, 2014, pp. 1–9. doi: <a href="https://doi.org/10.1109/LAWEB.2014.9">10.1109/LAWEB.2014.9</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FLAWEB.2014.9&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Modeling%20and%20Analyzing%20the%20Video%20Game%20Live-Streaming%20Community&amp;rft.btitle=9th%20Latin%20American%20Web%20Congress%2C%20LA-WEB%202014%2C%20Ouro%20Preto%2C%20Minas%20Gerais%2C%20Brazil%2C%2022-24%20October%2C%202014&amp;rft.publisher=IEEE%20Computer%20Society&amp;rft.aufirst=Gustavo&amp;rft.aulast=Nascimento&amp;rft.au=Gustavo%20Nascimento&amp;rft.au=Manoel%20Horta%20Ribeiro&amp;rft.au=Lo%C3%AFc%20Cerf&amp;rft.au=Natalia%20Cesario&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Thiago%20Vasconcelos&amp;rft.au=Wagner%20Meira%20Jr&amp;rft.au=Jussara%20M.%20Almeida&amp;rft.au=%C3%81lvaro%20R.%20Pereira%20Jr&amp;rft.au=Ricardo%20Baeza-Yates&amp;rft.au=Fabr%C3%ADcio%20Benevenuto&amp;rft.date=2014&amp;rft.pages=1%E2%80%939&amp;rft.spage=1&amp;rft.epage=9"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[25]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, Y. Pitarch, M. Plantevit, and C. Robardet, ‘Triggering patterns of topology changes in dynamic graphs’, in <i>2014 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining, ASONAM 2014, Beijing, China, August 17-20, 2014</i>, X. Wu, M. Ester, and G. Xu, Eds., IEEE Computer Society, 2014, pp. 158–165. doi: <a href="https://doi.org/10.1109/ASONAM.2014.6921577">10.1109/ASONAM.2014.6921577</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FASONAM.2014.6921577&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Triggering%20patterns%20of%20topology%20changes%20in%20dynamic%20graphs&amp;rft.btitle=2014%20IEEE%2FACM%20International%20Conference%20on%20Advances%20in%20Social%20Networks%20Analysis%20and%20Mining%2C%20ASONAM%202014%2C%20Beijing%2C%20China%2C%20August%2017-20%2C%202014&amp;rft.publisher=IEEE%20Computer%20Society&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Yoann%20Pitarch&amp;rft.au=Marc%20Plantevit&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Xindong%20Wu&amp;rft.au=Martin%20Ester&amp;rft.au=Guandong%20Xu&amp;rft.date=2014&amp;rft.pages=158%E2%80%93165&amp;rft.spage=158&amp;rft.epage=165"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[26]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, V. Codocedo, J. Baixeries, and A. Napoli, ‘Three Interrelated FCA Methods for Mining Biclusters of Similar Values on Columns’, in <i>Proceedings of the Eleventh International Conference on Concept Lattices and Their Applications, Košice, Slovakia, October 7-10, 2014</i>, K. Bertet and S. Rudolph, Eds., in CEUR Workshop Proceedings, vol. 1252. CEUR-WS.org, 2014, pp. 243–254. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1252/cla2014\_submission\_31.pdf">https://ceur-ws.org/Vol-1252/cla2014\_submission\_31.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Three%20Interrelated%20FCA%20Methods%20for%20Mining%20Biclusters%20of%20Similar%20Values%20on%20Columns&amp;rft.btitle=Proceedings%20of%20the%20Eleventh%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Ko%C5%A1ice%2C%20Slovakia%2C%20October%207-10%2C%202014&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Karell%20Bertet&amp;rft.au=Sebastian%20Rudolph&amp;rft.date=2014&amp;rft.pages=243%E2%80%93254&amp;rft.spage=243&amp;rft.epage=254"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[27]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, M. Kaytoue-Uberall, C. Raïssi, J.-F. Boulicaut, and P. Tan, ‘Mining Balanced Sequential Patterns in RTS Games’, in <i>ECAI 2014 - 21st European Conference on Artificial Intelligence, 18-22 August 2014, Prague, Czech Republic - Including Prestigious Applications of Intelligent Systems (PAIS 2014)</i>, T. Schaub, G. Friedrich, and B. O’Sullivan, Eds., in Frontiers in Artificial Intelligence and Applications, vol. 263. IOS Press, 2014, pp. 975–976. doi: <a href="https://doi.org/10.3233/978-1-61499-419-0-975">10.3233/978-1-61499-419-0-975</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.3233%2F978-1-61499-419-0-975&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Balanced%20Sequential%20Patterns%20in%20RTS%20Games&amp;rft.btitle=ECAI%202014%20-%2021st%20European%20Conference%20on%20Artificial%20Intelligence%2C%2018-22%20August%202014%2C%20Prague%2C%20Czech%20Republic%20-%20Including%20Prestigious%20Applications%20of%20Intelligent%20Systems%20(PAIS%202014)&amp;rft.publisher=IOS%20Press&amp;rft.series=Frontiers%20in%20Artificial%20Intelligence%20and%20Applications&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Philip%20Tan&amp;rft.au=Torsten%20Schaub&amp;rft.au=Gerhard%20Friedrich&amp;rft.au=Barry%20O'Sullivan&amp;rft.date=2014&amp;rft.pages=975%E2%80%93976&amp;rft.spage=975&amp;rft.epage=976"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[28]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, M. Kaytoue, and A. Napoli, ‘Characterization of Database Dependencies with FCA and Pattern Structures’, in <i>Analysis of Images, Social Networks and Texts - Third International Conference, AIST 2014, Yekaterinburg, Russia, April 10-12, 2014, Revised Selected Papers</i>, D. I. Ignatov, M. Y. Khachay, A. Panchenko, N. Konstantinova, and R. Yavorskiy, Eds., in Communications in Computer and Information Science, vol. 436. Springer, 2014, pp. 3–14. doi: <a href="https://doi.org/10.1007/978-3-319-12580-0_1">10.1007/978-3-319-12580-0_1</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-12580-0_1&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Characterization%20of%20Database%20Dependencies%20with%20FCA%20and%20Pattern%20Structures&amp;rft.btitle=Analysis%20of%20Images%2C%20Social%20Networks%20and%20Texts%20-%20Third%20International%20Conference%2C%20AIST%202014%2C%20Yekaterinburg%2C%20Russia%2C%20April%2010-12%2C%202014%2C%20Revised%20Selected%20Papers&amp;rft.publisher=Springer&amp;rft.series=Communications%20in%20Computer%20and%20Information%20Science&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Dmitry%20I.%20Ignatov&amp;rft.au=Mikhail%20Yu%20Khachay&amp;rft.au=Alexander%20Panchenko&amp;rft.au=Natalia%20Konstantinova&amp;rft.au=Rostislav%20Yavorskiy&amp;rft.date=2014&amp;rft.pages=3%E2%80%9314&amp;rft.spage=3&amp;rft.epage=14"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[29]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">C. Low-Kam, C. Raïssi, M. Kaytoue, and J. Pei, ‘Mining Statistically Significant Sequential Patterns’, in <i>2013 IEEE 13th International Conference on Data Mining, Dallas, TX, USA, December 7-10, 2013</i>, H. Xiong, G. Karypis, B. Thuraisingham, D. J. Cook, and X. Wu, Eds., IEEE Computer Society, 2013, pp. 488–497. doi: <a href="https://doi.org/10.1109/ICDM.2013.124">10.1109/ICDM.2013.124</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FICDM.2013.124&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Statistically%20Significant%20Sequential%20Patterns&amp;rft.btitle=2013%20IEEE%2013th%20International%20Conference%20on%20Data%20Mining%2C%20Dallas%2C%20TX%2C%20USA%2C%20December%207-10%2C%202013&amp;rft.publisher=IEEE%20Computer%20Society&amp;rft.aufirst=C%C3%A9cile&amp;rft.aulast=Low-Kam&amp;rft.au=C%C3%A9cile%20Low-Kam&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jian%20Pei&amp;rft.au=Hui%20Xiong&amp;rft.au=George%20Karypis&amp;rft.au=Bhavani%20Thuraisingham&amp;rft.au=Diane%20J.%20Cook&amp;rft.au=Xindong%20Wu&amp;rft.date=2013&amp;rft.pages=488%E2%80%93497&amp;rft.spage=488&amp;rft.epage=497"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[30]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Coulet, F. Domenach, M. Kaytoue, and A. Napoli, ‘Using Pattern Structures for Analyzing Ontology-Based Annotations of Biomedical Data’, in <i>Formal Concept Analysis, 11th International Conference, ICFCA 2013, Dresden, Germany, May 21-24, 2013. Proceedings</i>, P. Cellier, F. Distel, and B. Ganter, Eds., in Lecture Notes in Computer Science, vol. 7880. Springer, 2013, pp. 76–91. doi: <a href="https://doi.org/10.1007/978-3-642-38317-5_5">10.1007/978-3-642-38317-5_5</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-38317-5_5&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Using%20Pattern%20Structures%20for%20Analyzing%20Ontology-Based%20Annotations%20of%20Biomedical%20Data&amp;rft.btitle=Formal%20Concept%20Analysis%2C%2011th%20International%20Conference%2C%20ICFCA%202013%2C%20Dresden%2C%20Germany%2C%20May%2021-24%2C%202013.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Adrien&amp;rft.aulast=Coulet&amp;rft.au=Adrien%20Coulet&amp;rft.au=Florent%20Domenach&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Peggy%20Cellier&amp;rft.au=Felix%20Distel&amp;rft.au=Bernhard%20Ganter&amp;rft.date=2013&amp;rft.pages=76%E2%80%9391&amp;rft.spage=76&amp;rft.epage=91"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[31]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, M. Kaytoue, and A. Napoli, ‘Computing Similarity Dependencies with Pattern Structures’, in <i>Proceedings of the Tenth International Conference on Concept Lattices and Their Applications, La Rochelle, France, October 15-18, 2013</i>, M. Ojeda-Aciego and J. Outrata, Eds., in CEUR Workshop Proceedings, vol. 1062. CEUR-WS.org, 2013, pp. 33–44. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1062/paper3.pdf">https://ceur-ws.org/Vol-1062/paper3.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Computing%20Similarity%20Dependencies%20with%20Pattern%20Structures&amp;rft.btitle=Proceedings%20of%20the%20Tenth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20La%20Rochelle%2C%20France%2C%20October%2015-18%2C%202013&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Manuel%20Ojeda-Aciego&amp;rft.au=Jan%20Outrata&amp;rft.date=2013&amp;rft.pages=33%E2%80%9344&amp;rft.spage=33&amp;rft.epage=44"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[32]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, A. Silva, L. Cerf, W. M. Jr, and C. Raïssi, ‘Watch me playing, i am a professional: a first study on video game live streaming’, in <i>Proceedings of the 21st World Wide Web Conference, WWW 2012, Lyon, France, April 16-20, 2012 (Companion Volume)</i>, A. Mille, F. Gandon, J. Misselis, M. Rabinovich, and S. Staab, Eds., ACM, 2012, pp. 1181–1188. doi: <a href="https://doi.org/10.1145/2187980.2188259">10.1145/2187980.2188259</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1145%2F2187980.2188259&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Watch%20me%20playing%2C%20i%20am%20a%20professional%3A%20a%20first%20study%20on%20video%20game%20live%20streaming&amp;rft.btitle=Proceedings%20of%20the%2021st%20World%20Wide%20Web%20Conference%2C%20WWW%202012%2C%20Lyon%2C%20France%2C%20April%2016-20%2C%202012%20(Companion%20Volume)&amp;rft.publisher=ACM&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Arlei%20Silva&amp;rft.au=Lo%C3%AFc%20Cerf&amp;rft.au=Wagner%20Meira%20Jr&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Alain%20Mille&amp;rft.au=Fabien%20Gandon&amp;rft.au=Jacques%20Misselis&amp;rft.au=Michael%20Rabinovich&amp;rft.au=Steffen%20Staab&amp;rft.date=2012&amp;rft.pages=1181%E2%80%931188&amp;rft.spage=1181&amp;rft.epage=1188"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[33]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, M. Kaytoue, and A. Napoli, ‘Computing Functional Dependencies with Pattern Structures’, in <i>Proceedings of The Ninth International Conference on Concept Lattices and Their Applications, Fuengirola (Málaga), Spain, October 11-14, 2012</i>, L. Szathmary and U. Priss, Eds., in CEUR Workshop Proceedings, vol. 972. CEUR-WS.org, 2012, pp. 175–186. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-972/paper15.pdf">https://ceur-ws.org/Vol-972/paper15.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Computing%20Functional%20Dependencies%20with%20Pattern%20Structures&amp;rft.btitle=Proceedings%20of%20The%20Ninth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Fuengirola%20(M%C3%A1laga)%2C%20Spain%2C%20October%2011-14%2C%202012&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Laszlo%20Szathmary&amp;rft.au=Uta%20Priss&amp;rft.date=2012&amp;rft.pages=175%E2%80%93186&amp;rft.spage=175&amp;rft.epage=186"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[34]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, and A. Napoli, ‘Revisiting Numerical Pattern Mining with Formal Concept Analysis’, in <i>IJCAI 2011, Proceedings of the 22nd International Joint Conference on Artificial Intelligence, Barcelona, Catalonia, Spain, July 16-22, 2011</i>, T. Walsh, Ed., IJCAI/AAAI, 2011, pp. 1342–1347. doi: <a href="https://doi.org/10.5591/978-1-57735-516-8/IJCAI11-227">10.5591/978-1-57735-516-8/IJCAI11-227</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.5591%2F978-1-57735-516-8%2FIJCAI11-227&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Revisiting%20Numerical%20Pattern%20Mining%20with%20Formal%20Concept%20Analysis&amp;rft.btitle=IJCAI%202011%2C%20Proceedings%20of%20the%2022nd%20International%20Joint%20Conference%20on%20Artificial%20Intelligence%2C%20Barcelona%2C%20Catalonia%2C%20Spain%2C%20July%2016-22%2C%202011&amp;rft.publisher=IJCAI%2FAAAI&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Toby%20Walsh&amp;rft.date=2011&amp;rft.pages=1342%E2%80%931347&amp;rft.spage=1342&amp;rft.epage=1347"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[35]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, and A. Napoli, ‘Biclustering Numerical Data in Formal Concept Analysis’, in <i>Formal Concept Analysis - 9th International Conference, ICFCA 2011, Nicosia, Cyprus, May 2-6, 2011. Proceedings</i>, P. Valtchev and R. Jäschke, Eds., in Lecture Notes in Computer Science, vol. 6628. Springer, 2011, pp. 135–150. doi: <a href="https://doi.org/10.1007/978-3-642-20514-9_12">10.1007/978-3-642-20514-9_12</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-20514-9_12&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Biclustering%20Numerical%20Data%20in%20Formal%20Concept%20Analysis&amp;rft.btitle=Formal%20Concept%20Analysis%20-%209th%20International%20Conference%2C%20ICFCA%202011%2C%20Nicosia%2C%20Cyprus%2C%20May%202-6%2C%202011.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Petko%20Valtchev&amp;rft.au=Robert%20J%C3%A4schke&amp;rft.date=2011&amp;rft.pages=135%E2%80%93150&amp;rft.spage=135&amp;rft.epage=150"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[36]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, J. Macko, W. M. Jr, and A. Napoli, ‘Mining Biclusters of Similar Values with Triadic Concept Analysis’, in <i>Proceedings of The Eighth International Conference on Concept Lattices and Their Applications, Nancy, France, October 17-20, 2011</i>, A. Napoli and V. Vychodil, Eds., in CEUR Workshop Proceedings, vol. 959. CEUR-WS.org, 2011, pp. 175–190. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-959/paper12.pdf">https://ceur-ws.org/Vol-959/paper12.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Biclusters%20of%20Similar%20Values%20with%20Triadic%20Concept%20Analysis&amp;rft.btitle=Proceedings%20of%20The%20Eighth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Nancy%2C%20France%2C%20October%2017-20%2C%202011&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Juraj%20Macko&amp;rft.au=Wagner%20Meira%20Jr&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Vil%C3%A9m%20Vychodil&amp;rft.date=2011&amp;rft.pages=175%E2%80%93190&amp;rft.spage=175&amp;rft.epage=190"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[37]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Z. Assaghir, A. Napoli, M. Kaytoue, D. Dubois, and H. Prade, ‘Numerical Information Fusion: Lattice of Answers with Supporting Arguments’, in <i>IEEE 23rd International Conference on Tools with Artificial Intelligence, ICTAI 2011, Boca Raton, FL, USA, November 7-9, 2011</i>, IEEE Computer Society, 2011, pp. 621–628. doi: <a href="https://doi.org/10.1109/ICTAI.2011.98">10.1109/ICTAI.2011.98</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FICTAI.2011.98&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Numerical%20Information%20Fusion%3A%20Lattice%20of%20Answers%20with%20Supporting%20Arguments&amp;rft.btitle=IEEE%2023rd%20International%20Conference%20on%20Tools%20with%20Artificial%20Intelligence%2C%20ICTAI%202011%2C%20Boca%20Raton%2C%20FL%2C%20USA%2C%20November%207-9%2C%202011&amp;rft.publisher=IEEE%20Computer%20Society&amp;rft.aufirst=Zainab&amp;rft.aulast=Assaghir&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Didier%20Dubois&amp;rft.au=Henri%20Prade&amp;rft.date=2011&amp;rft.pages=621%E2%80%93628&amp;rft.spage=621&amp;rft.epage=628"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[38]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Z. Assaghir, M. Kaytoue, W. M. Jr, and J. Villerd, ‘Extracting Decision Trees from Interval Pattern Concept Lattices’, in <i>Proceedings of The Eighth International Conference on Concept Lattices and Their Applications, Nancy, France, October 17-20, 2011</i>, A. Napoli and V. Vychodil, Eds., in CEUR Workshop Proceedings, vol. 959. CEUR-WS.org, 2011, pp. 319–332. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-959/paper22.pdf">https://ceur-ws.org/Vol-959/paper22.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Extracting%20Decision%20Trees%20from%20Interval%20Pattern%20Concept%20Lattices&amp;rft.btitle=Proceedings%20of%20The%20Eighth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Nancy%2C%20France%2C%20October%2017-20%2C%202011&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Zainab&amp;rft.aulast=Assaghir&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Wagner%20Meira%20Jr&amp;rft.au=Jean%20Villerd&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Vil%C3%A9m%20Vychodil&amp;rft.date=2011&amp;rft.pages=319%E2%80%93332&amp;rft.spage=319&amp;rft.epage=332"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[39]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">P. Agarwal, M. Kaytoue, S. O. Kuznetsov, A. Napoli, and G. Polaillon, ‘Symbolic Galois Lattices with Pattern Structures’, in <i>Rough Sets, Fuzzy Sets, Data Mining and Granular Computing - 13th International Conference, RSFDGrC 2011, Moscow, Russia, June 25-27, 2011. Proceedings</i>, S. O. Kuznetsov, D. Slezak, D. H. Hepting, and B. G. Mirkin, Eds., in Lecture Notes in Computer Science, vol. 6743. Springer, 2011, pp. 191–198. doi: <a href="https://doi.org/10.1007/978-3-642-21881-1_31">10.1007/978-3-642-21881-1_31</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-21881-1_31&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Symbolic%20Galois%20Lattices%20with%20Pattern%20Structures&amp;rft.btitle=Rough%20Sets%2C%20Fuzzy%20Sets%2C%20Data%20Mining%20and%20Granular%20Computing%20-%2013th%20International%20Conference%2C%20RSFDGrC%202011%2C%20Moscow%2C%20Russia%2C%20June%2025-27%2C%202011.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=P.&amp;rft.aulast=Agarwal&amp;rft.au=P.%20Agarwal&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=G%C3%A9raldine%20Polaillon&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Dominik%20Slezak&amp;rft.au=Daryl%20H.%20Hepting&amp;rft.au=Boris%20G.%20Mirkin&amp;rft.date=2011&amp;rft.pages=191%E2%80%93198&amp;rft.spage=191&amp;rft.epage=198"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[40]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue-Uberall, Z. Assaghir, N. Messai, and A. Napoli, ‘Two Complementary Classification Methods for Designing a Concept Lattice from Interval Data’, in <i>Foundations of Information and Knowledge Systems, 6th International Symposium, FoIKS 2010, Sofia, Bulgaria, February 15-19, 2010. Proceedings</i>, S. Link and H. Prade, Eds., in Lecture Notes in Computer Science, vol. 5956. Springer, 2010, pp. 345–362. doi: <a href="https://doi.org/10.1007/978-3-642-11829-6_22">10.1007/978-3-642-11829-6_22</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-11829-6_22&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Two%20Complementary%20Classification%20Methods%20for%20Designing%20a%20Concept%20Lattice%20from%20Interval%20Data&amp;rft.btitle=Foundations%20of%20Information%20and%20Knowledge%20Systems%2C%206th%20International%20Symposium%2C%20FoIKS%202010%2C%20Sofia%2C%20Bulgaria%2C%20February%2015-19%2C%202010.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue-Uberall&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Nizar%20Messai&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sebastian%20Link&amp;rft.au=Henri%20Prade&amp;rft.date=2010&amp;rft.pages=345%E2%80%93362&amp;rft.spage=345&amp;rft.epage=362"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[41]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, Z. Assaghir, A. Napoli, and S. O. Kuznetsov, ‘Embedding tolerance relations in formal concept analysis: an application in information fusion’, in <i>Proceedings of the 19th ACM Conference on Information and Knowledge Management, CIKM 2010, Toronto, Ontario, Canada, October 26-30, 2010</i>, J. X. Huang, N. Koudas, G. J. F. Jones, X. Wu, K. Collins-Thompson, and A. An, Eds., ACM, 2010, pp. 1689–1692. doi: <a href="https://doi.org/10.1145/1871437.1871705">10.1145/1871437.1871705</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1145%2F1871437.1871705&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Embedding%20tolerance%20relations%20in%20formal%20concept%20analysis%3A%20an%20application%20in%20information%20fusion&amp;rft.btitle=Proceedings%20of%20the%2019th%20ACM%20Conference%20on%20Information%20and%20Knowledge%20Management%2C%20CIKM%202010%2C%20Toronto%2C%20Ontario%2C%20Canada%2C%20October%2026-30%2C%202010&amp;rft.publisher=ACM&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Jimmy%20X.%20Huang&amp;rft.au=Nick%20Koudas&amp;rft.au=Gareth%20J.%20F.%20Jones&amp;rft.au=Xindong%20Wu&amp;rft.au=Kevyn%20Collins-Thompson&amp;rft.au=Aijun%20An&amp;rft.date=2010&amp;rft.pages=1689%E2%80%931692&amp;rft.spage=1689&amp;rft.epage=1692"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[42]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Z. Assaghir, M. Kaytoue, and H. Prade, ‘A Possibility Theory-Oriented Discussion of Conceptual Pattern Structures’, in <i>Scalable Uncertainty Management - 4th International Conference, SUM 2010, Toulouse, France, September 27-29, 2010. Proceedings</i>, A. Deshpande and A. Hunter, Eds., in Lecture Notes in Computer Science, vol. 6379. Springer, 2010, pp. 70–83. doi: <a href="https://doi.org/10.1007/978-3-642-15951-0_12">10.1007/978-3-642-15951-0_12</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-15951-0_12&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=A%20Possibility%20Theory-Oriented%20Discussion%20of%20Conceptual%20Pattern%20Structures&amp;rft.btitle=Scalable%20Uncertainty%20Management%20-%204th%20International%20Conference%2C%20SUM%202010%2C%20Toulouse%2C%20France%2C%20September%2027-29%2C%202010.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Zainab&amp;rft.aulast=Assaghir&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Henri%20Prade&amp;rft.au=Amol%20Deshpande&amp;rft.au=Anthony%20Hunter&amp;rft.date=2010&amp;rft.pages=70%E2%80%9383&amp;rft.spage=70&amp;rft.epage=83"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[43]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Z. Assaghir, M. Kaytoue, A. Napoli, and H. Prade, ‘Managing Information Fusion with Formal Concept Analysis’, in <i>Modeling Decisions for Artificial Intelligence - 7th International Conference, MDAI 2010, Perpignan, France, October 27-29, 2010. Proceedings</i>, V. Torra, Y. Narukawa, and M. Daumas, Eds., in Lecture Notes in Computer Science, vol. 6408. Springer, 2010, pp. 104–115. doi: <a href="https://doi.org/10.1007/978-3-642-16292-3_12">10.1007/978-3-642-16292-3_12</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-16292-3_12&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Managing%20Information%20Fusion%20with%20Formal%20Concept%20Analysis&amp;rft.btitle=Modeling%20Decisions%20for%20Artificial%20Intelligence%20-%207th%20International%20Conference%2C%20MDAI%202010%2C%20Perpignan%2C%20France%2C%20October%2027-29%2C%202010.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Zainab&amp;rft.aulast=Assaghir&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Henri%20Prade&amp;rft.au=Vicen%C3%A7%20Torra&amp;rft.au=Yasuo%20Narukawa&amp;rft.au=Marc%20Daumas&amp;rft.date=2010&amp;rft.pages=104%E2%80%93115&amp;rft.spage=104&amp;rft.epage=115"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[44]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue-Uberall, S. Duplessis, S. O. Kuznetsov, and A. Napoli, ‘Two FCA-Based Methods for Mining Gene Expression Data’, in <i>Formal Concept Analysis, 7th International Conference, ICFCA 2009, Darmstadt, Germany, May 21-24, 2009, Proceedings</i>, S. Ferré and S. Rudolph, Eds., in Lecture Notes in Computer Science, vol. 5548. Springer, 2009, pp. 251–266. doi: <a href="https://doi.org/10.1007/978-3-642-01815-2_19">10.1007/978-3-642-01815-2_19</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-01815-2_19&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Two%20FCA-Based%20Methods%20for%20Mining%20Gene%20Expression%20Data&amp;rft.btitle=Formal%20Concept%20Analysis%2C%207th%20International%20Conference%2C%20ICFCA%202009%2C%20Darmstadt%2C%20Germany%2C%20May%2021-24%2C%202009%2C%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue-Uberall&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=S%C3%A9bastien%20Duplessis&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=S%C3%A9bastien%20Ferr%C3%A9&amp;rft.au=Sebastian%20Rudolph&amp;rft.date=2009&amp;rft.pages=251%E2%80%93266&amp;rft.spage=251&amp;rft.epage=266"></span>
+</div>
+<!-- end zotero-->
+
+
+<h3 id="book">Book chapters</h3>
+<!-- zotero-->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">J. Baixeries, V. Codocedo, M. Kaytoue, and A. Napoli, ‘Computing Dependencies Using FCA’, in <i>Complex Data Analytics with Formal Concept Analysis</i>, R. Missaoui, L. Kwuida, and T. Abdessalem, Eds., Springer International Publishing, 2022, pp. 135–150. doi: <a href="https://doi.org/10.1007/978-3-030-93278-7_6">10.1007/978-3-030-93278-7_6</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Computing%20Dependencies%20Using%20FCA&amp;rft.publisher=Springer%20International%20Publishing&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Rokia%20Missaoui&amp;rft.au=L%C3%A9onard%20Kwuida&amp;rft.au=Talel%20Abdessalem&amp;rft.date=2022&amp;rft.pages=135%E2%80%93150&amp;rft.spage=135&amp;rft.epage=150"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">S. Ferré, M. Huchard, M. Kaytoue, S. O. Kuznetsov, and A. Napoli, ‘Formal Concept Analysis: From Knowledge Discovery to Knowledge Processing’, in <i>A Guided Tour of Artificial Intelligence Research: Volume II: AI Algorithms</i>, P. Marquis, O. Papini, and H. Prade, Eds., Springer, 2020, pp. 411–445. doi: <a href="https://doi.org/10.1007/978-3-030-06167-8_13">10.1007/978-3-030-06167-8_13</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Formal%20Concept%20Analysis%3A%20From%20Knowledge%20Discovery%20to%20Knowledge%20Processing&amp;rft.publisher=Springer&amp;rft.aufirst=S%C3%A9bastien&amp;rft.aulast=Ferr%C3%A9&amp;rft.au=S%C3%A9bastien%20Ferr%C3%A9&amp;rft.au=Marianne%20Huchard&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Pierre%20Marquis&amp;rft.au=Odile%20Papini&amp;rft.au=Henri%20Prade&amp;rft.date=2020&amp;rft.pages=411%E2%80%93445&amp;rft.spage=411&amp;rft.epage=445"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">Z. Assaghir, M. Kaytoue-Uberall, A. Napoli, and H. Prade, ‘Organiser la fusion d’informations par l’analyse formelle de concepts’, in <i>Fouille de données complexes. Complexité liée aux données multiples</i>, vol. E-21, G. Cleuziou, M. Lebbah, A. Martin, and B. B. Yaghlane, Eds., in RNTI, vol. E-21. , Hermann-Éditions, 2011, pp. 267–287. Accessed: Feb. 05, 2025. [Online]. Available: <a href="http://editions-rnti.fr/?inprocid=1001250">http://editions-rnti.fr/?inprocid=1001250</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Organiser%20la%20fusion%20d'informations%20par%20l'analyse%20formelle%20de%20concepts&amp;rft.publisher=Hermann-%C3%89ditions&amp;rft.series=RNTI&amp;rft.aufirst=Zainab&amp;rft.aulast=Assaghir&amp;rft.au=Zainab%20Assaghir&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Henri%20Prade&amp;rft.au=Guillaume%20Cleuziou&amp;rft.au=Mustapha%20Lebbah&amp;rft.au=Arnaud%20Martin&amp;rft.au=Boutheina%20Ben%20Yaghlane&amp;rft.date=2011&amp;rft.pages=267%E2%80%93287&amp;rft.spage=267&amp;rft.epage=287"></span>
+</div>
+<!-- end zotero-->
+
+<h3 id="editorial">Editorship</h3>
+<!-- zotero-->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">J. V. Haaren, M. Kaytoue, and J. Davis, Eds., <i>Proceedings of the Workshop on Machine Learning and Data Mining for Sports Analytics 2016 co-located with the 2016 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases, MLSA@PKDD/ECML 2016, Riva del Garda, Italy, September 19, 2016</i>, vol. 1842. in CEUR Workshop Proceedings, vol. 1842. CEUR-WS.org, 2017. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1842">https://ceur-ws.org/Vol-1842</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Proceedings%20of%20the%20Workshop%20on%20Machine%20Learning%20and%20Data%20Mining%20for%20Sports%20Analytics%202016%20co-located%20with%20the%202016%20European%20Conference%20on%20Machine%20Learning%20and%20Principles%20and%20Practice%20of%20Knowledge%20Discovery%20in%20Databases%2C%20MLSA%40PKDD%2FECML%202016%2C%20Riva%20del%20Garda%2C%20Italy%2C%20September%2019%2C%202016&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jan%20Van&amp;rft.aulast=Haaren&amp;rft.au=Jan%20Van%20Haaren&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jesse%20Davis&amp;rft.date=2017"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">J. Davis, M. Kaytoue, and A. Zimmermann, Eds., <i>Proceedings of the 4th Workshop on Machine Learning and Data Mining for Sports Analytics co-located with 2017 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD 2017), Skopje, Macedonia, September 18th, 2017</i>, vol. 1971. in CEUR Workshop Proceedings, vol. 1971. CEUR-WS.org, 2017. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1971">https://ceur-ws.org/Vol-1971</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Proceedings%20of%20the%204th%20Workshop%20on%20Machine%20Learning%20and%20Data%20Mining%20for%20Sports%20Analytics%20co-located%20with%202017%20European%20Conference%20on%20Machine%20Learning%20and%20Principles%20and%20Practice%20of%20Knowledge%20Discovery%20in%20Databases%20(ECML%20PKDD%202017)%2C%20Skopje%2C%20Macedonia%2C%20September%2018th%2C%202017&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jesse&amp;rft.aulast=Davis&amp;rft.au=Jesse%20Davis&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Albrecht%20Zimmermann&amp;rft.date=2017"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">C. V. Glodeanu, M. Kaytoue, and C. Sacarea, Eds., <i>Formal Concept Analysis - 12th International Conference, ICFCA 2014, Cluj-Napoca, Romania, June 10-13, 2014. Proceedings</i>, vol. 8478. in Lecture Notes in Computer Science, vol. 8478. Springer, 2014. doi: <a href="https://doi.org/10.1007/978-3-319-07248-7">10.1007/978-3-319-07248-7</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-3-319-07247-0&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Formal%20Concept%20Analysis%20-%2012th%20International%20Conference%2C%20ICFCA%202014%2C%20Cluj-Napoca%2C%20Romania%2C%20June%2010-13%2C%202014.%20Proceedings&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Cynthia%20Vera&amp;rft.aulast=Glodeanu&amp;rft.au=Cynthia%20Vera%20Glodeanu&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Christian%20Sacarea&amp;rft.date=2014&amp;rft.isbn=978-3-319-07247-0"></span>
+</div>
+<!-- end zotero -->
+
+<h3 id="national">National conferences, Worskshops</h3>
+<!-- zotero -->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Y. Remil, A. Bendimerad, M. Chambard, R. Mathonat, M. Plantevit, and M. Kaytoue, ‘Mining Java Memory Errors using Subjective Interesting Subgroups with Hierarchical Targets’, in <i>IEEE International Conference on Data Mining, ICDM 2023 - Workshops, Shanghai, China, December 4, 2023</i>, J. Wang, Y. He, T. N. Dinh, C. Grant, M. Qiu, and W. Pedrycz, Eds., IEEE, 2023, pp. 1221–1230. doi: <a href="https://doi.org/10.1109/ICDMW60847.2023.00159">10.1109/ICDMW60847.2023.00159</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1109%2FICDMW60847.2023.00159&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Mining%20Java%20Memory%20Errors%20using%20Subjective%20Interesting%20Subgroups%20with%20Hierarchical%20Targets&amp;rft.btitle=IEEE%20International%20Conference%20on%20Data%20Mining%2C%20ICDM%202023%20-%20Workshops%2C%20Shanghai%2C%20China%2C%20December%204%2C%202023&amp;rft.publisher=IEEE&amp;rft.aufirst=Youcef&amp;rft.aulast=Remil&amp;rft.au=Youcef%20Remil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Mathieu%20Chambard&amp;rft.au=Romain%20Mathonat&amp;rft.au=Marc%20Plantevit&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jihe%20Wang&amp;rft.au=Yi%20He&amp;rft.au=Thang%20N.%20Dinh&amp;rft.au=Christan%20Grant&amp;rft.au=Meikang%20Qiu&amp;rft.au=Witold%20Pedrycz&amp;rft.date=2023&amp;rft.pages=1221%E2%80%931230&amp;rft.spage=1221&amp;rft.epage=1230"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, V. Codocedo, M. Kaytoue, and A. Napoli, ‘Dependency Covers from an FCA Perspective’, in <i>Proceedings of the 11th International Workshop ‘What can FCA do for Artificial Intelligence?’ co-located with the 32nd International Joint Conference on Artificial Intelligence (IJCAI 2023), Macao, S.A.R. China; August 20, 2023</i>, S. O. Kuznetsov, A. Napoli, and S. Rudolph, Eds., in CEUR Workshop Proceedings, vol. 3489. CEUR-WS.org, 2023, pp. 57–68. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-3489/paper6.pdf">https://ceur-ws.org/Vol-3489/paper6.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Dependency%20Covers%20from%20an%20FCA%20Perspective&amp;rft.btitle=Proceedings%20of%20the%2011th%20International%20Workshop%20%22What%20can%20FCA%20do%20for%20Artificial%20Intelligence%3F%22%20co-located%20with%20the%2032nd%20International%20Joint%20Conference%20on%20Artificial%20Intelligence%20(IJCAI%202023)%2C%20Macao%2C%20S.A.R.%20China%3B%20August%2020%2C%202023&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sebastian%20Rudolph&amp;rft.date=2023&amp;rft.pages=57%E2%80%9368&amp;rft.spage=57&amp;rft.epage=68"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Y. Remil, A. Bendimerad, M. Plantevit, C. Robardet, and M. Kaytoue, ‘Découverte de sous-groupes de prédictions interprétables pour le triage d’incidents’, in <i>Extraction et Gestion des Connaissances, EGC 2022, Blois, France, 24 au 28 janvier 2022</i>, S. Amer-Yahia and A. Soulet, Eds., in RNTI, vol. E-38. Editions RNTI, 2022, pp. 411–418. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002754">https://editions-rnti.fr/?inprocid=1002754</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=D%C3%A9couverte%20de%20sous-groupes%20de%20pr%C3%A9dictions%20interpr%C3%A9tables%20pour%20le%20triage%20d'incidents&amp;rft.btitle=Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202022%2C%20Blois%2C%20France%2C%2024%20au%2028%20janvier%202022&amp;rft.publisher=Editions%20RNTI&amp;rft.series=RNTI&amp;rft.aufirst=Youcef&amp;rft.aulast=Remil&amp;rft.au=Youcef%20Remil&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Marc%20Plantevit&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sihem%20Amer-Yahia&amp;rft.au=Arnaud%20Soulet&amp;rft.date=2022&amp;rft.pages=411%E2%80%93418&amp;rft.spage=411&amp;rft.epage=418"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">J. Baixeries, V. Codocedo, M. Kaytoue, and A. Napoli, ‘Building a Representation Context Based on Attribute Exploration Algorithms’, in <i>Proceedings of the 8th International Workshop ‘What can FCA do for Artificial Intelligence?’ (FCA4AI 2020) co-located with 24th European Conference on Artificial Intelligence (ECAI 2020), Santiago de Compostela, Spain, August 29, 2020</i>, S. O. Kuznetsov, A. Napoli, and S. Rudolph, Eds., in CEUR Workshop Proceedings, vol. 2729. CEUR-WS.org, 2020, pp. 141–152. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-2729/paper14.pdf">https://ceur-ws.org/Vol-2729/paper14.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Building%20a%20Representation%20Context%20Based%20on%20Attribute%20Exploration%20Algorithms&amp;rft.btitle=Proceedings%20of%20the%208th%20International%20Workshop%20%22What%20can%20FCA%20do%20for%20Artificial%20Intelligence%3F%22%20(FCA4AI%202020)%20co-located%20with%2024th%20European%20Conference%20on%20Artificial%20Intelligence%20(ECAI%202020)%2C%20Santiago%20de%20Compostela%2C%20Spain%2C%20August%2029%2C%202020&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Jaume&amp;rft.aulast=Baixeries&amp;rft.au=Jaume%20Baixeries&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Sebastian%20Rudolph&amp;rft.date=2020&amp;rft.pages=141%E2%80%93152&amp;rft.spage=141&amp;rft.epage=152"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[5]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">R. Mathonat, J.-F. Boulicaut, and M. Kaytoue, ‘Découverte de sous-groupes à partir de données séquentielles par échantillonnage et optimisation locale’, in <i>Extraction et Gestion des connaissances, EGC 2019, Metz, France, January 21-25, 2019</i>, M.-C. Rousset and L. Boudjeloud-Assala, Eds., in RNTI, vol. E-35. Éditions RNTI, 2019, pp. 153–164. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002477">https://editions-rnti.fr/?inprocid=1002477</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=D%C3%A9couverte%20de%20sous-groupes%20%C3%A0%20partir%20de%20donn%C3%A9es%20s%C3%A9quentielles%20par%20%C3%A9chantillonnage%20et%20optimisation%20locale&amp;rft.btitle=Extraction%20et%20Gestion%20des%20connaissances%2C%20EGC%202019%2C%20Metz%2C%20France%2C%20January%2021-25%2C%202019&amp;rft.publisher=%C3%89ditions%20RNTI&amp;rft.series=RNTI&amp;rft.aufirst=Romain&amp;rft.aulast=Mathonat&amp;rft.au=Romain%20Mathonat&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marie-Christine%20Rousset&amp;rft.au=Lydia%20Boudjeloud-Assala&amp;rft.date=2019&amp;rft.pages=153%E2%80%93164&amp;rft.spage=153&amp;rft.epage=164"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[6]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">N. Juniarta, V. Codocedo, M. Couceiro, M. Kaytoue, and A. Napoli, ‘Pattern Structures for Identifying Biclusters with Coherent Sign Changes’, in <i>Supplementary Proceedings of ICFCA 2019 Conference and Workshops, Frankfurt, Germany, June 25-28, 2019</i>, D. Cristea, F. L. Ber, R. Missaoui, L. Kwuida, and B. Sertkaya, Eds., in CEUR Workshop Proceedings, vol. 2378. CEUR-WS.org, 2019, pp. 1–13. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-2378/longICFCA1.pdf">https://ceur-ws.org/Vol-2378/longICFCA1.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Pattern%20Structures%20for%20Identifying%20Biclusters%20with%20Coherent%20Sign%20Changes&amp;rft.btitle=Supplementary%20Proceedings%20of%20ICFCA%202019%20Conference%20and%20Workshops%2C%20Frankfurt%2C%20Germany%2C%20June%2025-28%2C%202019&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Nyoman&amp;rft.aulast=Juniarta&amp;rft.au=Nyoman%20Juniarta&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Miguel%20Couceiro&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Diana%20Cristea&amp;rft.au=Florence%20Le%20Ber&amp;rft.au=Rokia%20Missaoui&amp;rft.au=L%C3%A9onard%20Kwuida&amp;rft.au=Baris%20Sertkaya&amp;rft.date=2019&amp;rft.pages=1%E2%80%9313&amp;rft.spage=1&amp;rft.epage=13"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[7]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">Q. Labernia, V. Codocedo, M. Kaytoue, and C. Robardet, ‘Découverte de labels dupliqués par l’exploration du treillis des classifieurs binaires’, in <i>16ème Journées Francophones Extraction et Gestion des Connaissances, EGC 2016, 18-22 Janvier 2016, Reims, France</i>, C. de Runz and B. Crémilleux, Eds., in Revue des Nouvelles Technologies de l’Information, vol. E-30. Éditions RNTI, 2016, pp. 255–266. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002177">https://editions-rnti.fr/?inprocid=1002177</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=D%C3%A9couverte%20de%20labels%20dupliqu%C3%A9s%20par%20l'exploration%20du%20treillis%20des%20classifieurs%20binaires&amp;rft.btitle=16%C3%A8me%20Journ%C3%A9es%20Francophones%20Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202016%2C%2018-22%20Janvier%202016%2C%20Reims%2C%20France&amp;rft.publisher=%C3%89ditions%20RNTI&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Quentin&amp;rft.aulast=Labernia&amp;rft.au=Quentin%20Labernia&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Cyril%20de%20Runz&amp;rft.au=Bruno%20Cr%C3%A9milleux&amp;rft.date=2016&amp;rft.pages=255%E2%80%93266&amp;rft.spage=255&amp;rft.epage=266"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[8]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">V. Codocedo, J. Baixeries, M. Kaytoue, and A. Napoli, ‘Characterization of Order-like Dependencies with Formal Concept Analysis’, in <i>Proceedings of the Thirteenth International Conference on Concept Lattices and Their Applications, Moscow, Russia, July 18-22, 2016</i>, M. Huchard and S. O. Kuznetsov, Eds., in CEUR Workshop Proceedings, vol. 1624. CEUR-WS.org, 2016, pp. 123–134. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1624/paper10.pdf">https://ceur-ws.org/Vol-1624/paper10.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Characterization%20of%20Order-like%20Dependencies%20with%20Formal%20Concept%20Analysis&amp;rft.btitle=Proceedings%20of%20the%20Thirteenth%20International%20Conference%20on%20Concept%20Lattices%20and%20Their%20Applications%2C%20Moscow%2C%20Russia%2C%20July%2018-22%2C%202016&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=V%C3%ADctor&amp;rft.aulast=Codocedo&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Jaume%20Baixeries&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Marianne%20Huchard&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.date=2016&amp;rft.pages=123%E2%80%93134&amp;rft.spage=123&amp;rft.epage=134"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[9]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">O. Cavadenti, V. Codocedo, M. Kaytoue, and J.-F. Boulicaut, ‘Découverte de motifs intelligibles et caractéristiques d’anomalies dans les traces unitaires’, in <i>16ème Journées Francophones Extraction et Gestion des Connaissances, EGC 2016, 18-22 Janvier 2016, Reims, France</i>, C. de Runz and B. Crémilleux, Eds., in Revue des Nouvelles Technologies de l’Information, vol. E-30. Éditions RNTI, 2016, pp. 27–38. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002153">https://editions-rnti.fr/?inprocid=1002153</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=D%C3%A9couverte%20de%20motifs%20intelligibles%20et%20caract%C3%A9ristiques%20d'anomalies%20dans%20les%20traces%20unitaires&amp;rft.btitle=16%C3%A8me%20Journ%C3%A9es%20Francophones%20Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202016%2C%2018-22%20Janvier%202016%2C%20Reims%2C%20France&amp;rft.publisher=%C3%89ditions%20RNTI&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Olivier&amp;rft.aulast=Cavadenti&amp;rft.au=Olivier%20Cavadenti&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Cyril%20de%20Runz&amp;rft.au=Bruno%20Cr%C3%A9milleux&amp;rft.date=2016&amp;rft.pages=27%E2%80%9338&amp;rft.spage=27&amp;rft.epage=38"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[10]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Belfodil, M. Kaytoue, C. Robardet, M. Plantevit, and J. Zarka, ‘Une méthode de découverte de motifs contextualisés dans les traces de mobilité d’une personne’, in <i>16ème Journées Francophones Extraction et Gestion des Connaissances, EGC 2016, 18-22 Janvier 2016, Reims, France</i>, C. de Runz and B. Crémilleux, Eds., in Revue des Nouvelles Technologies de l’Information, vol. E-30. Éditions RNTI, 2016, pp. 63–68. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002156">https://editions-rnti.fr/?inprocid=1002156</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Une%20m%C3%A9thode%20de%20d%C3%A9couverte%20de%20motifs%20contextualis%C3%A9s%20dans%20les%20traces%20de%20mobilit%C3%A9%20d'une%20personne&amp;rft.btitle=16%C3%A8me%20Journ%C3%A9es%20Francophones%20Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202016%2C%2018-22%20Janvier%202016%2C%20Reims%2C%20France&amp;rft.publisher=%C3%89ditions%20RNTI&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Aimene&amp;rft.aulast=Belfodil&amp;rft.au=Aimene%20Belfodil&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Marc%20Plantevit&amp;rft.au=Julien%20Zarka&amp;rft.au=Cyril%20de%20Runz&amp;rft.au=Bruno%20Cr%C3%A9milleux&amp;rft.date=2016&amp;rft.pages=63%E2%80%9368&amp;rft.spage=63&amp;rft.epage=68"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[11]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">A. Zimmermann, M. Kaytoue, M. Plantevit, C. Robardet, and J.-F. Boulicaut, ‘Profiling Users of the Velo’v Bike Sharing System’, in <i>Proceedings of the 2nd International Workshop on Mining Urban Data co-located with 32nd International Conference on Machine Learning (ICML 2015), Lille, France, July 11th, 2015</i>, I. Katakis, F. Schnitzler, T. Liebig, D. Gunopulos, K. Morik, G. L. Andrienko, and S. Mannor, Eds., in CEUR Workshop Proceedings, vol. 1392. CEUR-WS.org, 2015, pp. 63–64. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1392/paper-08.pdf">https://ceur-ws.org/Vol-1392/paper-08.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Profiling%20Users%20of%20the%20Velo'v%20Bike%20Sharing%20System&amp;rft.btitle=Proceedings%20of%20the%202nd%20International%20Workshop%20on%20Mining%20Urban%20Data%20co-located%20with%2032nd%20International%20Conference%20on%20Machine%20Learning%20(ICML%202015)%2C%20Lille%2C%20France%2C%20July%2011th%2C%202015&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Albrecht&amp;rft.aulast=Zimmermann&amp;rft.au=Albrecht%20Zimmermann&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Ioannis%20Katakis&amp;rft.au=Fran%C3%A7ois%20Schnitzler&amp;rft.au=Thomas%20Liebig&amp;rft.au=Dimitrios%20Gunopulos&amp;rft.au=Katharina%20Morik&amp;rft.au=Gennady%20L.%20Andrienko&amp;rft.au=Shie%20Mannor&amp;rft.date=2015&amp;rft.pages=63%E2%80%9364&amp;rft.spage=63&amp;rft.epage=64"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[12]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">O. Cavadenti, V. Codocedo, M. Kaytoue, and J.-F. Boulicaut, ‘Identifying Avatar Aliases in StarCraft 2’, in <i>Proceedings of the 2nd Workshop on Machine Learning and Data Mining for Sports Analytics co-located with 2015 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD 2015), Porto, Portugal, September 11th, 2015</i>, J. Davis, J. V. Haaren, and A. Zimmermann, Eds., in CEUR Workshop Proceedings, vol. 1970. CEUR-WS.org, 2015, pp. 28–35. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1970/paper-05.pdf">https://ceur-ws.org/Vol-1970/paper-05.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Identifying%20Avatar%20Aliases%20in%20StarCraft%202&amp;rft.btitle=Proceedings%20of%20the%202nd%20Workshop%20on%20Machine%20Learning%20and%20Data%20Mining%20for%20Sports%20Analytics%20co-located%20with%202015%20European%20Conference%20on%20Machine%20Learning%20and%20Principles%20and%20Practice%20of%20Knowledge%20Discovery%20in%20Databases%20(ECML%20PKDD%202015)%2C%20Porto%2C%20Portugal%2C%20September%2011th%2C%202015&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Olivier&amp;rft.aulast=Cavadenti&amp;rft.au=Olivier%20Cavadenti&amp;rft.au=V%C3%ADctor%20Codocedo&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Jesse%20Davis&amp;rft.au=Jan%20Van%20Haaren&amp;rft.au=Albrecht%20Zimmermann&amp;rft.date=2015&amp;rft.pages=28%E2%80%9335&amp;rft.spage=28&amp;rft.epage=35"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[13]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, M. Kaytoue, M. Plantevit, F. D. Marchi, M. Bensafi, and J.-F. Boulicaut, ‘Vers la découverte de modèles exceptionnels locaux : des règles descriptives liant les molécules à leurs odeurs’, in <i>15èmes Journées Francophones Extraction et Gestion des Connaissances, EGC 2015, 27-30 Janvier 2015, Luxembourg</i>, B. Otjacques, J. Darmont, and T. Tamisier, Eds., in Revue des Nouvelles Technologies de l’Information, vol. E-28. Hermann-Éditions, 2015, pp. 305–316. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1002091">https://editions-rnti.fr/?inprocid=1002091</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Vers%20la%20d%C3%A9couverte%20de%20mod%C3%A8les%20exceptionnels%20locaux%20%3A%20des%20r%C3%A8gles%20descriptives%20liant%20les%20mol%C3%A9cules%20%C3%A0%20leurs%20odeurs&amp;rft.btitle=15%C3%A8mes%20Journ%C3%A9es%20Francophones%20Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202015%2C%2027-30%20Janvier%202015%2C%20Luxembourg&amp;rft.publisher=Hermann-%C3%89ditions&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=Fabien%20De%20Marchi&amp;rft.au=Moustafa%20Bensafi&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Beno%C3%AEt%20Otjacques&amp;rft.au=J%C3%A9r%C3%B4me%20Darmont&amp;rft.au=Thomas%20Tamisier&amp;rft.date=2015&amp;rft.pages=305%E2%80%93316&amp;rft.spage=305&amp;rft.epage=316"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[14]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, M. Kaytoue-Uberall, C. Raïssi, and J.-F. Boulicaut, ‘Fouille de motifs séquentiels pour l’élicitation de stratégies à partir de traces d’interactions entre agents en compétition’, in <i>14èmes Journées Francophones Extraction et Gestion des Connaissances, EGC 2014, Rennes, France, 28-32 Janvier, 2014</i>, C. Reynaud, A. Martin, and R. Quiniou, Eds., in Revue des Nouvelles Technologies de l’Information, vol. E-26. Hermann-Éditions, 2014, pp. 359–370. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1001948">https://editions-rnti.fr/?inprocid=1001948</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Fouille%20de%20motifs%20s%C3%A9quentiels%20pour%20l'%C3%A9licitation%20de%20strat%C3%A9gies%20%C3%A0%20partir%20de%20traces%20d'interactions%20entre%20agents%20en%20comp%C3%A9tition&amp;rft.btitle=14%C3%A8mes%20Journ%C3%A9es%20Francophones%20Extraction%20et%20Gestion%20des%20Connaissances%2C%20EGC%202014%2C%20Rennes%2C%20France%2C%2028-32%20Janvier%2C%202014&amp;rft.publisher=Hermann-%C3%89ditions&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Chantal%20Reynaud&amp;rft.au=Arnaud%20Martin&amp;rft.au=Ren%C3%A9%20Quiniou&amp;rft.date=2014&amp;rft.pages=359%E2%80%93370&amp;rft.spage=359&amp;rft.epage=370"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[15]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">G. Bosc, M. Kaytoue, C. Raïssi, and J.-F. Boulicaut, ‘Strategic Patterns Discovery in RTS-games for E-Sport with Sequential Pattern Mining’, in <i>Proceedings of the 2nd Workshop on Machine Learning and Data Mining for Sports Analytics co-located with 2013 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML PKDD 2013), Prague, Czech Republic, September 27th, 2013</i>, J. Davis, J. V. Haaren, and A. Zimmermann, Eds., in CEUR Workshop Proceedings, vol. 1969. CEUR-WS.org, 2013, pp. 11–20. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://ceur-ws.org/Vol-1969/paper-03.pdf">https://ceur-ws.org/Vol-1969/paper-03.pdf</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Strategic%20Patterns%20Discovery%20in%20RTS-games%20for%20E-Sport%20with%20Sequential%20Pattern%20Mining&amp;rft.btitle=Proceedings%20of%20the%202nd%20Workshop%20on%20Machine%20Learning%20and%20Data%20Mining%20for%20Sports%20Analytics%20co-located%20with%202013%20European%20Conference%20on%20Machine%20Learning%20and%20Principles%20and%20Practice%20of%20Knowledge%20Discovery%20in%20Databases%20(ECML%20PKDD%202013)%2C%20Prague%2C%20Czech%20Republic%2C%20September%2027th%2C%202013&amp;rft.publisher=CEUR-WS.org&amp;rft.series=CEUR%20Workshop%20Proceedings&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Chedy%20Ra%C3%AFssi&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Jesse%20Davis&amp;rft.au=Jan%20Van%20Haaren&amp;rft.au=Albrecht%20Zimmermann&amp;rft.date=2013&amp;rft.pages=11%E2%80%9320&amp;rft.spage=11&amp;rft.epage=20"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[16]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue, S. O. Kuznetsov, A. Napoli, J. Macko, and W. M. Jr, ‘Caractérisation et extraction de biclusters de valeurs similaires avec l’analyse de concepts triadiques’, in <i>Extraction et gestion des connaissances (EGC’2012), Actes, janvier 31 - février 2012, Bordeaux, France</i>, Y. Lechevallier, G. Melançon, and B. Pinaud, Eds., in Revue des Nouvelles Technologies de l’Information, vol. RNTI-E-23. Hermann-Éditions, 2012, pp. 65–76. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1001166">https://editions-rnti.fr/?inprocid=1001166</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Caract%C3%A9risation%20et%20extraction%20de%20biclusters%20de%20valeurs%20similaires%20avec%20l'analyse%20de%20concepts%20triadiques&amp;rft.btitle=Extraction%20et%20gestion%20des%20connaissances%20(EGC'2012)%2C%20Actes%2C%20janvier%2031%20-%20f%C3%A9vrier%202012%2C%20Bordeaux%2C%20France&amp;rft.publisher=Hermann-%C3%89ditions&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Sergei%20O.%20Kuznetsov&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Juraj%20Macko&amp;rft.au=Wagner%20Meira%20Jr&amp;rft.au=Yves%20Lechevallier&amp;rft.au=Guy%20Melan%C3%A7on&amp;rft.au=Bruno%20Pinaud&amp;rft.date=2012&amp;rft.pages=65%E2%80%9376&amp;rft.spage=65&amp;rft.epage=76"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 2em;">[17]</div><div class="csl-right-inline" style="margin: 0 .4em 0 2.5em;">M. Kaytoue-Uberall, S. Duplessis, and A. Napoli, ‘L’analyse formelle de concepts pour l’extraction de connaissances dans les données d’expression de gènes’, in <i>Extraction et gestion des connaissances (EGC’2009), Actes, Strasbourg, France, 27 au 30 janvier 2009</i>, J.-G. Ganascia and P. Gançarski, Eds., in Revue des Nouvelles Technologies de l’Information, vol. RNTI-E-15. Cépaduès-Éditions, 2009, pp. 439–440. Accessed: Feb. 05, 2025. [Online]. Available: <a href="https://editions-rnti.fr/?inprocid=1000793">https://editions-rnti.fr/?inprocid=1000793</a></div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=L'analyse%20formelle%20de%20concepts%20pour%20l'extraction%20de%20connaissances%20dans%20les%20donn%C3%A9es%20d'expression%20de%20g%C3%A8nes&amp;rft.btitle=Extraction%20et%20gestion%20des%20connaissances%20(EGC'2009)%2C%20Actes%2C%20Strasbourg%2C%20France%2C%2027%20au%2030%20janvier%202009&amp;rft.publisher=C%C3%A9padu%C3%A8s-%C3%89ditions&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue-Uberall&amp;rft.au=Mehdi%20Kaytoue-Uberall&amp;rft.au=S%C3%A9bastien%20Duplessis&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Jean-Gabriel%20Ganascia&amp;rft.au=Pierre%20Gan%C3%A7arski&amp;rft.date=2009&amp;rft.pages=439%E2%80%93440&amp;rft.spage=439&amp;rft.epage=440"></span>
+</div>
+
+<!-- end zotero-->
+
+<h3 id="demos">Demos</h3>
+<!-- zotero -->
+<div class="csl-bib-body" style="line-height: 1.35; ">
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[1]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">A. Bendimerad, Y. Remil, R. Mathonat, and M. Kaytoue, ‘On-Premise AIOps Infrastructure for a Software Editor SME: An Experience Report’, in <i>Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering, ESEC/FSE 2023, San Francisco, CA, USA, December 3-9, 2023</i>, S. Chandra, K. Blincoe, and P. Tonella, Eds., ACM, 2023, pp. 1820–1831. doi: <a href="https://doi.org/10.1145/3611643.3613876">10.1145/3611643.3613876</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1145%2F3611643.3613876&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=On-Premise%20AIOps%20Infrastructure%20for%20a%20Software%20Editor%20SME%3A%20An%20Experience%20Report&amp;rft.btitle=Proceedings%20of%20the%2031st%20ACM%20Joint%20European%20Software%20Engineering%20Conference%20and%20Symposium%20on%20the%20Foundations%20of%20Software%20Engineering%2C%20ESEC%2FFSE%202023%2C%20San%20Francisco%2C%20CA%2C%20USA%2C%20December%203-9%2C%202023&amp;rft.publisher=ACM&amp;rft.aufirst=Anes&amp;rft.aulast=Bendimerad&amp;rft.au=Anes%20Bendimerad&amp;rft.au=Youcef%20Remil&amp;rft.au=Romain%20Mathonat&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Satish%20Chandra&amp;rft.au=Kelly%20Blincoe&amp;rft.au=Paolo%20Tonella&amp;rft.date=2023&amp;rft.pages=1820%E2%80%931831&amp;rft.spage=1820&amp;rft.epage=1831"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[2]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">G. Bosc, M. Plantevit, J.-F. Boulicaut, M. Bensafi, and M. Kaytoue, ‘h(odor): Interactive Discovery of Hypotheses on the Structure-Odor Relationship in Neuroscience’, in <i>Machine Learning and Knowledge Discovery in Databases - European Conference, ECML PKDD 2016, Riva del Garda, Italy, September 19-23, 2016, Proceedings, Part III</i>, B. Berendt, B. Bringmann, É. Fromont, G. C. Garriga, P. Miettinen, N. Tatti, and V. Tresp, Eds., in Lecture Notes in Computer Science, vol. 9853. Springer, 2016, pp. 17–21. doi: <a href="https://doi.org/10.1007/978-3-319-46131-1_4">10.1007/978-3-319-46131-1_4</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-46131-1_4&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=h(odor)%3A%20Interactive%20Discovery%20of%20Hypotheses%20on%20the%20Structure-Odor%20Relationship%20in%20Neuroscience&amp;rft.btitle=Machine%20Learning%20and%20Knowledge%20Discovery%20in%20Databases%20-%20European%20Conference%2C%20ECML%20PKDD%202016%2C%20Riva%20del%20Garda%2C%20Italy%2C%20September%2019-23%2C%202016%2C%20Proceedings%2C%20Part%20III&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Guillaume&amp;rft.aulast=Bosc&amp;rft.au=Guillaume%20Bosc&amp;rft.au=Marc%20Plantevit&amp;rft.au=Jean-Fran%C3%A7ois%20Boulicaut&amp;rft.au=Moustafa%20Bensafi&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Bettina%20Berendt&amp;rft.au=Bj%C3%B6rn%20Bringmann&amp;rft.au=%C3%89lisa%20Fromont&amp;rft.au=Gemma%20C.%20Garriga&amp;rft.au=Pauli%20Miettinen&amp;rft.au=Nikolaj%20Tatti&amp;rft.au=Volker%20Tresp&amp;rft.date=2016&amp;rft.pages=17%E2%80%9321&amp;rft.spage=17&amp;rft.epage=21"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[3]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">P. Houdyer, A. Zimmermann, M. Kaytoue, M. Plantevit, J. Mitchell, and C. Robardet, ‘Gazouille: Detecting and Illustrating Local Events from Geolocalized Social Media Streams’, in <i>Machine Learning and Knowledge Discovery in Databases - European Conference, ECML PKDD 2015, Porto, Portugal, September 7-11, 2015, Proceedings, Part III</i>, A. Bifet, M. May, B. Zadrozny, R. Gavaldà, D. Pedreschi, F. Bonchi, J. S. Cardoso, and M. Spiliopoulou, Eds., in Lecture Notes in Computer Science, vol. 9286. Springer, 2015, pp. 276–280. doi: <a href="https://doi.org/10.1007/978-3-319-23461-8_29">10.1007/978-3-319-23461-8_29</a>.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-23461-8_29&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Gazouille%3A%20Detecting%20and%20Illustrating%20Local%20Events%20from%20Geolocalized%20Social%20Media%20Streams&amp;rft.btitle=Machine%20Learning%20and%20Knowledge%20Discovery%20in%20Databases%20-%20European%20Conference%2C%20ECML%20PKDD%202015%2C%20Porto%2C%20Portugal%2C%20September%207-11%2C%202015%2C%20Proceedings%2C%20Part%20III&amp;rft.publisher=Springer&amp;rft.series=Lecture%20Notes%20in%20Computer%20Science&amp;rft.aufirst=Pierre&amp;rft.aulast=Houdyer&amp;rft.au=Pierre%20Houdyer&amp;rft.au=Albrecht%20Zimmermann&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Marc%20Plantevit&amp;rft.au=Joseph%20Mitchell&amp;rft.au=C%C3%A9line%20Robardet&amp;rft.au=Albert%20Bifet&amp;rft.au=Michael%20May&amp;rft.au=Bianca%20Zadrozny&amp;rft.au=Ricard%20Gavald%C3%A0&amp;rft.au=Dino%20Pedreschi&amp;rft.au=Francesco%20Bonchi&amp;rft.au=Jaime%20S.%20Cardoso&amp;rft.au=Myra%20Spiliopoulou&amp;rft.date=2015&amp;rft.pages=276%E2%80%93280&amp;rft.spage=276&amp;rft.epage=280"></span>
+  <div class="csl-entry" style="clear: left; ">
+    <div class="csl-left-margin" style="float: left; padding-right: 0.5em;text-align: right; width: 1em;">[4]</div><div class="csl-right-inline" style="margin: 0 .4em 0 1.5em;">M. Kaytoue, A. Napoli, and L. Szathmary, ‘Une brève présentation du système de fouille de données Coron’, in <i>Extraction et gestion des connaissances (EGC’2012), Actes, janvier 31 - février 2012, Bordeaux, France</i>, Y. Lechevallier, G. Melançon, and B. Pinaud, Eds., in Revue des Nouvelles Technologies de l’Information, vol. RNTI-E-23. Hermann-Éditions, 2012, pp. 603–606.</div>
+  </div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=proceeding&amp;rft.atitle=Une%20br%C3%A8ve%20pr%C3%A9sentation%20du%20syst%C3%A8me%20de%20fouille%20de%20donn%C3%A9es%20Coron&amp;rft.btitle=Extraction%20et%20gestion%20des%20connaissances%20(EGC'2012)%2C%20Actes%2C%20janvier%2031%20-%20f%C3%A9vrier%202012%2C%20Bordeaux%2C%20France&amp;rft.publisher=Hermann-%C3%89ditions&amp;rft.series=Revue%20des%20Nouvelles%20Technologies%20de%20l'Information&amp;rft.aufirst=Mehdi&amp;rft.aulast=Kaytoue&amp;rft.au=Mehdi%20Kaytoue&amp;rft.au=Amedeo%20Napoli&amp;rft.au=Laszlo%20Szathmary&amp;rft.au=Yves%20Lechevallier&amp;rft.au=Guy%20Melan%C3%A7on&amp;rft.au=Bruno%20Pinaud&amp;rft.date=2012&amp;rft.pages=603%E2%80%93606&amp;rft.spage=603&amp;rft.epage=606"></span>
+</div>
+<!-- end zotero -->
+</div>
+<div class="container">
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        <!-- For collaborations, questions, or further information, feel free to reach out via: -->
+         Feel free to reach out via:
+      </p>
+      <ul>
+        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mehdikaytoue/" target="_blank">Mehdi Kaytoue</a></li>
+        <!-- <li><strong>Twitter (X):</strong> <a href="https://twitter.com/MehdiKaytoue" target="_blank">@MehdiKaytoue</a></li> -->
+        <!-- <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li> -->
+      </ul>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>This page is maintained by Mehdi Kaytoue – Last updated: February 2025.</p>
+  </footer>
+  <button id="goTopBtn" onclick="scrollToTop()">⬆ Go to Top</button>
+
+</body>
+</html>
