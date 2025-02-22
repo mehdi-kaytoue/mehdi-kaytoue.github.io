@@ -63,7 +63,7 @@
     }
     /* Main Content Container with rounded corners */
     .container {
-      max-width: 1024px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #fff;
@@ -271,12 +271,13 @@ function toggleThesisDetails(event) {
   <!-- Navigation -->
   <nav>
     <a href="#about-me">About Me</a>
-    <a href="#biography">Biography</a>
+    <a href="#experience">Experience</a>
     <a href="#research-interests">Research</a>
-    <a href="#industry">Industry</a>
+    <!-- <a href="#industry">Industry</a> --> 
     <a href="#phd-supervision-alumni">Alumni</a>
     <a href="#teaching">Teaching</a>
     <a href="#publications">Publications</a>
+    <a href="#software">Software</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -284,29 +285,54 @@ function toggleThesisDetails(event) {
   <div class="container">
     <!-- About Me Section -->
     <section id="about-me">
-      !!! PAGE UNDER CONSTRUCTION  !!! 
       <h2>About Me</h2>
           <img src="profile.jpg"  alt="Profile Picture" class="profile-pic">
+      <p  style="text-align: justify;">
+        I am an associate professor of Computer Science at the Institut National des Sciences Appliquées since 2012 (INSA de Lyon, France).
+        My main research interests are artificial intelligence, data-mining, and especially pattern mining with formal concept analysis.
+        Original methods and algorithms developped as part of my research are applied to various domains with a particular attention
+        to software engineering, digitalization, olfaction in neuroscience, geo-located social media analysis, electronic sports and video game analytics.
+
+        I bring extensive industry experience, having participated in several research projects and collaborations, including CIFRE, FUI, and EU FP7 Marie Curie.
+        Additionally, I have a year of experience as an auto-entrepreneur, eight months in a startup focusing on knowledge transfer, and most notably, 
+        seven years working for a French PME software editor. During this time, I have developed a robust skill set and gained valuable expertise.
+      
+      </p>
       <p>
-        I am an Associate Professor in Computer Science with a passion for research, teaching, and industrial collaboration. My work lies at the intersection of data mining, formal concept analysis, and machine learning. I have been actively involved in exploring innovative algorithms to extract meaningful patterns from complex datasets, with applications ranging from gene expression analysis to graph mining.
+        <span class="tags" style="text-align: center;">
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Knowledge Discovery</span>
+          <span class="tag">Data Mining</span>
+          <span class="tag">Formal Concept Analysis</span>
+          <span class="tag">Pattern Mining</span>
+          <span class="tag">Subgroup Discovery</span>
+          <span class="tag">Applications</span>
+          <span class="tag">Industry</span>
+        </span>
       </p>
     </section>
+
 </div>
 
 
     <div class="container">
-    <!-- Biography Section -->
-    <section id="biography">
-      <h2>Biography</h2>
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Experience</h2>
       <ul>
         <li><strong>2020:</strong> Habilitation (<em>Habilitation à diriger des recherche</em>) in Computer Science at Université de Lyon (INSA Lyon).</li>
-        <li><strong>2018 – Present:</strong> On sabbatical leave from INSA Lyon and serving as R&I Manager at the French software company <a href="https://www.infologic-copilote.fr/innovation/recherche-innovation/" target="_blank">Infologic</a>.</li>
-        <li><strong>2012 – 2018:</strong> Associate Professor in Computer Science at Institut National des Sciences Appliquées (INSA), Lyon, France.</li>
-        <li><strong>2011 – 2012:</strong> Postdoctoral Fellow in Computer Science at Universidade Federal de Minas Gerais, Brazil.</li>
+        <li><strong>2018 – present:</strong> On sabbatical leave from INSA Lyon and serving as R&I Manager at the French software company <a href="https://www.infologic-copilote.fr/innovation/recherche-innovation/" target="_blank">Infologic</a>.</li>
+        <li><strong>2017-2018</strong>: Auto-entrepreneur associtad to <a href="https://www.insavalor.fr/" target="_blank">Insavalor</a>.</li>
+        <li><strong>2014 - 2016</strong>: FP7 Marie Curie fellow, consulting & dev AI solutions during 8 months (Gosh.live/Tapastreet Ltd., Dublin, Ireland).</li>
+        <li><strong>2012:</strong> Associate Professor in Computer Science at INSA Lyon, France.</li>
+        <li><strong>2012 – 2012:</strong> Postdoctoral Fellow in Computer Science  at INSA Lyon, France.</li>
+        <li><strong>2011 – 2012:</strong> Postdoctoral Fellow in Computer Science at Universidade Federal de Minas Gerais (UFMG), Brazil.</li>
+        <li><strong>2000 – 2011:</strong> Teaching Assistant (Attaché temporaire d'enseignement et de recherche, ATER), Université Henri Poincaré, Nancy, France.</li>
         <li><strong>2007 – 2011:</strong> PhD in Computer Science from Université de Lorraine, Nancy, France.</li>
+        <li><strong>2007 – 2010:</strong> Teaching Assistant (Moniteur de l'enseignement supérieur, CIES), Université Nancy 2, France.</li>
         <li><strong>2004 – 2007:</strong> Bachelor's/Master's in Computer Science from Université de Strasbourg, France.</li>
-        <li><strong>2002 – 2004:</strong> Diploma in Software Engineering (DUT) from Université Robert Schuman, Strasbourg, France.</li>
-        <li><strong>2002:</strong> Scientific Baccalaureate, Lycée Marie Curie, Strasbourg, France.</li>
+        <li><strong>2002 – 2004:</strong> Technical in Software Engineering (DUT) from Université Robert Schuman, Strasbourg, France.</li>
+
       </ul>
     </section>
     </div>
@@ -316,7 +342,17 @@ function toggleThesisDetails(event) {
   <div class="container">
     <!-- Research Interests Section -->
     <section id="research-interests">
-      <h2>Research Interests</h2>
+      <h2>Research</h2>
+
+      <p style="text-align: justify;">My scientific adventure began with the study of a binary relationship, very often illustrated by grocery store transaction data, 
+        linking customers and products they buy. How to make this relationship speak? What knowledge, behavioral habits, recommendations, etc. can we characterize? 
+        This initial question allowed me to travel through different application fields (biology, neuroscience, social networks and video games analytics, software engineering),
+         seeking to implement or adapt data mining methods to try to understand some phenomena while properly formalizing data and patterns in the most rigorous way.
+         My research accordingly follows three main  axes: the formalism framing the methods (Formal Concept Analysis), 
+         the methodological and algorithmic aspects related in Data mining, and finally the Knowledge Discovery "in practice" through several concrete
+         applications encountered during collaborations with other scientists or industrial partners.</p> 
+
+     
       <ul>
        <!-- <li><strong>Data Mining &amp; Knowledge Discovery:</strong> Developing algorithms to extract patterns and insights from large-scale datasets.</li>
         <li><strong>Formal Concept Analysis:</strong> Employing mathematical frameworks for data structuring and visualization.</li>
@@ -325,28 +361,151 @@ function toggleThesisDetails(event) {
         <li><strong>Machine Learning Applications:</strong> Integrating pattern mining techniques with learning algorithms to tackle real-world challenges.</li>
         -->
       </ul>
+
+      <div class="thesis-container">
+        <div class="thesis-header" onclick="toggleThesisDetails(event)">
+            <span class="arrow">▶</span> <strong>HDR: Contributions to Pattern Discovery and Formal Concept Analysis (2020)</strong>&nbsp;<a href="https://hal.science/tel-02495263v1/document" target="_blank"><i class="fa-solid fa-file-pdf" style="color: red;"></i></a>
+            <a href="./files/hdr-kaytoue-slides.pdf" target="_blank"><i class="fa-solid fa-person-chalkboard" style="color: red;"></i></a></div>
+              <span class="tags">
+                <span class="tag">Knowledge Discovery</span>
+                <span class="tag">Formal Concept Analysis</span>
+                <span class="tag">Subgroup Discovery</span>
+                <span class="tag">Pattern Mining</span>
+                <span class="tag">Applications</span>
+            </span>
+        
+        <div class="thesis-details">
+            <h4>Jury</h4>
+            <ul>
+                <li><strong>President:</strong> Angela Bonifati</li>
+                <li><strong>Examiners:</strong> Michael Berthold (Knime.org), Johannes Fürnkranz, Amedeo Napoli, Jean-François Boulicat</li>
+                <li><strong>Reviewers:</strong> Karell Berthet, Florent Masseglia, Christel Vrain</li>
+            </ul>
+            <h4><a href="https://theses.hal.science/tel-02495263" target="_blank">More details on HAL</a></h4>
+            <h4>Abstract</h4>
+            <p style="text-align: justify;">The process of collecting and analyzing data to answer predictive, explanatory, and decision-making issues has come to be known as "data science" for more than thirty years. Firstly used only by scientists, mainly by statisticians, the term is now widely used in the academics and industrial world. This can be explained in two ways: (i) data is ubiquitous, large, and varied, and (ii) there has been an awareness of the omniscient potential of data. The latter can be economic, societal, scientific, or related to health-care, and is based not only on the data that an entity has, but also on data that it can get (sensors, social networks, open data, etc., freely or not) making the data a black oil that still needs algorithms, methods and methodologies, to be properly refined. One component of data science, Knowledge Discovery in databases (KDD), deals in particular with the Data-Information-Knowledge process with the aim of explaining relationships or discovering hidden properties. Opposed to a purely statistical approach, a family of methods has met an important success over the last twenty years: data-mining and especially pattern-mining. Their goal is to describe, summarize, raise hypotheses from data. In particular, pattern mining makes it possible to efficiently find regularities of various types (such as frequent patterns in a set of transactions, molecular sub-graphs characteristic of toxicity, locally co-expressed gene groups, etc.). In fact, where conventional approaches aim to validate or invalidate an hypothesis given a priori, the search of patterns is seen as an enumeration technique of all the possible hypotheses (a set of exponential size w.r.t the input data) verifying some given constraints or maximizing a certain interest for the expert. Once discovered, the best hypotheses can then be tested, validated or invalidated and ultimately validated as knowledge unit. My scientific adventure began with the study of a binary relationship, very often illustrated by grocery store transaction data, linking customers and products they buy. How to make this relationship speak? What knowledge, behavioral habits, recommendations, etc. can we characterize? This initial question allowed me to travel through different application fields (biology, neuroscience, social networks and video games analytics), seeking to implement or adapt data mining methods to try to understand some phenomena while properly formalizing data and patterns in the most rigorous way. This is the story of this manuscript, according to three main research axes: the formalism framing the methods (Formal Concept Analysis), the methodological and algorithmic aspects related in Data mining, and finally the Knowledge Discovery "in practice" through several concrete applications encountered during collaborations with other scientists or industrial partners.</p>
+        </div>
+    </div>
+
+    <div class="thesis-container">
+      <div class="thesis-header" onclick="toggleThesisDetails(event)">
+          <span class="arrow">▶</span> <strong>PhD: Mining numerical data with formal concept analysis and pattern structures (2011)</strong>&nbsp;<a href="https://docnum.univ-lorraine.fr/public/SCD_T_2011_0015_KAYTOUE.pdf" target="_blank"><i class="fa-solid fa-file-pdf" style="color: red;"></i></a></div>
+            <span class="tags">
+              <span class="tag">Formal Concept Analysis</span>
+              <span class="tag">Numerical data</span>
+              <span class="tag">Pattern mining</span>
+              <span class="tag">Biclustering</span>
+              <span class="tag">Information fusion</span>
+              <span class="tag">Gene expression analysis</span>
+          </span>
+      
+      <div class="thesis-details">
+          <p><strong>Supervisors :</strong> Amedeo Napoli, Sébastien Duplessis</p>
+          <h4>Jury</h4>
+          <ul>
+              <li><strong>President:</strong> Bernard Girau</li>
+              <li><strong>Examiners:</strong> Sergei O. Kuznetsov, Céline Rouveirol</li>
+              <li><strong>Reviewers:</strong> Jean-François Boulicaut, Bernhard Ganter</li>
+          </ul>
+          <h4><a href="https://theses.fr/2011NAN10015" target="_blank">More details on theses.fr</a></h4>
+          <h4>Abstract</h4>
+          <p style="text-align: justify;">The main topic of this thesis addresses the important problem of mining numerical data, and especially gene expression data. These data characterize the behaviour of thousand of genes in various biological situations (time, cell, etc.).A difficult task consists in clustering genes to obtain classes of genes with similar behaviour, supposed to be involved together within a biological process.Accordingly, we are interested in designing and comparing methods in the field of knowledge discovery from biological data. We propose to study how the conceptual classification method called Formal Concept Analysis (FCA) can handle the problem of extracting interesting classes of genes. For this purpose, we have designed and experimented several original methods based on an extension of FCA called pattern structures. Furthermore, we show that these methods can enhance decision making in agronomy and crop sanity in the vast formal domain of information fusion.</p>
+      </div>
+  </div>
+    
+
+      <h3>International or large-scale projects</h3>
+      <ul>
+        <li>ANR AT2TA</li>
+        <li>ANR SmartFCA</li>
+        <li>European project GRAISearch (FP7-PEOPLE-2013)</li>
+        <li>FUI AAP 14 Tracaverre 2012-2016 - Pole MAUD</li>
+      </ul>
+
+      <h3>Regional or small-scale projects</h3>
+      <ul>
+          <li>CNRS MI DEFI-SENS : AMADOUER - MASTODONS</li>
+          <li>FAPEMIG: 2 projects for supporting collaborations with Wagner Meira Jr. & Loïc Cerf at UFMG (Belo Horizonte, Brazil)</li>
+          <li>2014-2015 - INSA BQR - Contribution à la compréhension de systèmes solaires en conditions réelles par la fouille de données spatio-temporelles</li>
+          <li>Lab. LIRIS funded Olfamine</li>
+      </ul>
+
+      <h3>Responsibilities</h3>
+      <ul>
+        <li>Member of the Editorial Board of the International Conference on Formal Concept Analysis (from 2015 to 2023) (IFCA has no merged with CLA and ICCS as CONCEPTS, see more <a href="https://upriss.github.io/fca/fcaconferences.html" target="_blank">here)</a></li>
+        <li>PC Co-chair of the International Conference on Formal Concept Analysis (<a href="https://www.cs.ubbcluj.ro/icfca14/" target="_blank">ICFCA 2014</a>)</li>
+        <li>2008-2013: Organizer of the <a href="https://www.lirmm.fr/treillis/index77e377e3.html?option=com_content&view=article&id=49:journee-des-treillis-lorrains-decembre-2008&catid=39:journeetreillis&Itemid=76" target="_blank">Journées des treillis 2008 in Nancy</a>and maintainer of the website <a href="www.treillis.org">treillis.org</a></li>
+        <li>Organization co-chair of the conference Concept Lattices and their Applications (<a href="http://cla.inf.upol.cz/cla2011.html" target="_blank">CLA 2011</a>)</li>
+        <li>Membre of the organizing committee of the joint conference LMO, CAL et IDM (2009)</li>
+        <li>Communication / dissemination for the bioinformatics seminars at LORIA lab (2007/2010)</li>
+      </ul>
+
+      <h3>Invited talks</h3>
+      <ul>
+        </li>Invited speaker at the AIST 2016 conference</li>
+        <li>10 décembre 2014: Orateur invité (Knowledge discovery with formal concept analysis) à la journée Gestion de la connaissance à l'aide des méthodes formelles organisée par l'Université de Lorraine et la Fédération Charle Hermite (Nancy).</li>
+        <li>Juillet 2014 : Chercheur invité au MIT Media Lab par T.L. Taylor (professeur) et au MIT Game Lab par P. Tan (directeur de la création), Cambridge, Massachusetts, États-Unis.</li>
+        <li>27 octobre 2014 : Séminaire invité (Mining Social Media) au Trinity College Dublin, Irlande. Rozenn Dayot (Assistant Professor en statistiques) suite au projet européen Graisearch (FP7).</li>
+        <li>29 octobre 2013 : tutoriel de 4h d'introduction à l'analyse de concepts formels en master d'informatique (spécialité Knowledge and Information Systems), à l'université de Nice Sophia Antipolis, 2013.</li>
+        <li>26 novembre 2012 : Séminaire intitulé Le sport électronique : données et challenges à la journée fouille de données du GDR i3.</li>
+      </ul>
+
+      <h3>Evaluation committees</h3>
+      <ul>
+        <li><strong>Comité d'évaluation scientifique</strong></li>
+          <ul>
+            <li><em> ANR Appel à projets générique - CE23 Intelligence artificielle et science des données</em> (<a href="https://anr.fr/fileadmin/aap/2023/selection/Compilation_Listes_Mbres_1_56_AAPG2023.pdf" target="_blank">2023</a>, <a href="https://anr.fr/fileadmin/aap/2024/selection/aapg-2024-CE.pdf" target="_blank">2024</a>)</li></li>
+          </ul> 
+        <li><strong>PhD's jurys</strong></li>
+        <ul>
+          <li>Reviewer and examiner for <a href="https://theses.fr/2024NORMC245" target="_blank">Alexis Mortelier : <em>Observatory of tactics in collective (e-)sport</em></a> (2024)</li>
+          <li>Reviewer and examiner for Roman Vyjidacek, 2024</li>
+          <li>Examiner <a href="https://theses.fr/2022LAROS035" target="_blank">Salah Eddine Boukhetta : <em>Sequence analysis using GALACTIC - Generic approach combining Formal Concept Analysis and pattern mining</em></a> (2022)</li>
+        </ul>
+        <li><strong>Editorial Board member of ICFCA (2014-2020)</strong></li>
+        <li><strong>Reviewing</strong> (currently trying to reference the main services on <a href="https://www.webofscience.com/wos/author/record/AAI-6146-2020" target="_blank">Publons</a></li>
+            <ul>
+              <li>Journals: Machine Learning, Data Ming. Knowl. Discov., Annals of Math. and AI, Discr. Appl. Math., IEEE Transactions on Games, IEEE Transactions on Knowledge and Data Engineering, Pattern recognition, PLOS Computational Biology, Information Science, Annals of Mathematics and Artificial Intelligence, Machine Learning, Revue d'Intelligence Artificielle, etc.</li>
+              <li>International conferences: IJCAI, ECAI, ECML/PKDD, ICDM, WWW, ICFCA, CLA, CONCEPTS, etc.</li>
+              <li>National conferences: EGC</li>
+            </ul>
+      </ul>
+
+      <h3>Vulgarisation, dissemination</h3>
+      <ul>
+        <li>Fête de la science: presenting knowledge discovery and gene expression data analysis during my PhD preparation at INRIA/LORIA Nancy Grand Est</li>
+        <li>Presentation of my PhD works to professeur from Lycee (INRIA Nancy Grand Est)</li>
+      </ul>
+
     </section>
   </div>
 
 
 
 
-
-
-
-
-
-
+<!--
   <div class="container">
-    <!-- PhD Supervision & Alumni Section -->
     <section id="industry">
       <h2>Industry</h2>
+      
+      <h3>Leave of absence: R&I Director at Infologic R&D (2018-present)</h3>
+
+      <h3>Auto-entrepreneur (2017-2018)</h3>
+        <ul>
+          <li>Keystroke dynamics for a client</li>
+          <li>Teaching data minig and knowledge discovery at the LDLC school</li>
+        </ul>
+
+      <h3>Collaborations</h3>
+      <ul>
+        <li>CIFRE: ATOS, Courbon (ACTEMIUM/Vinci group), Mobile device (munic.io)</li>
+      </ul>
+          
+      
 
     </section>
   </div>
-
-
-
+-->
 
 
 
@@ -493,21 +652,40 @@ function toggleThesisDetails(event) {
       </div>
   </div>
      
-  <h3>Post-docs</h3>
+  <h3>Post-docs and research engineers</h3>
   <ul>
     <li>Victor Codocedo</li>
+    <li>Pierre Houdyer</li>
   </ul>
+
+
   <h3>Master's research students</h3>
   <ul>
-    <li>Guillaume Bosc</li>
+    <li>Guillaume Bosc: Associating odor qualities to their molecular properties with redescription mining. Master recherche, INSA de Lyon (2014). His results were nominated to the best applied research paper at the French conference EGC.</li>
+    <li>Roland Kotto-Kombi: Olfactory qualities characterization with subgroup discovery. Master recherche, Université Lyon 1 (2014).</li>
   </ul>
-  <h3>Other (yet important!)</h3>
+  <h3>Alumnis</h3> (constitution in progress...)
   <ul>
-    <li>Pierre Houdyer</li>
-    <li>Florian Collignon</li>
-    <li>Arnaud Knobloch</li>
-    <li>Nicolas Sonntag</li>
     <li>Prakhar Agrawal</li>
+    <li> Guillame Bosc: Internship 4th year CS INSA Lyon. Mining patterns from stracraft2 replays.</li>
+    <li>FLORENT COLLIGNON. Stage d’été après le DUT d’informatique (IUT Charlemagne, Nancy 2).
+      Développement d’une librairie JAVA de discrétisation de données numériques.</li>
+    <li>BAPTISTE DUCATEL. Stage de fin de première année de l’école Sup’Info.
+      Étude de l’intégration de la plate-forme de fouille de données CORON dans la plate-forme KNIME.</li>
+    <li>MAXIME KREPPERT. Stage de DUT d’informatique (IUT Charlemagne, Nancy 2).
+      Développements de la plate-forme de fouille de données BioCoron.</li>
+    <li>NICOLAS SONNTAG. Stage de DUT d’informatique (IUT Haguenau, Département SRC).
+      Réalisation du site Web de la plate-forme de fouille de données CORON – <a href="http://coron.loria.fr">coron.loria.fr</a></li>
+    <li>JULIEN SOUCHET. Stage de DUT d’informatique (IUT Charlemagne, Nancy 2).
+      Recommandation personnalisée à partir des données Movielens.</li>
+    <li>SÉBASTIEN VAILLANT. Stage de fin de formation “Concepteur Développeur Informatique” à
+      l’association nationale pour la formation professionnelle des adultes (AFPA).
+      Implémentation d’un algorithme de fouille de données.</li>
+    <li>FLORIAN COLLIGNON et ARNAUD KNOBLOCH. Projet industriel - Master 2 SID Miage (Nancy 2).
+      Développements de la plate-forme de fouille de données BioCoron.</li>
+    <li>ÉDOUARD GILET et FLORENT RAVENEL. Projet industriel - Master 2 SID Miage (Nancy 2).
+      Étude et mise en place d’un système de gestion de documents pour une équipe de recherche.</li>
+  
   </ul>
 
     </section>
@@ -520,8 +698,49 @@ function toggleThesisDetails(event) {
 <div class="container">
   <!-- Teaching Section -->
   <section id="teaching">
+    <h2>Teaching</h2>
+    
+    <h3>INSA Lyon: 2012-2018</h3>
+    I mainly taught artificial intelligence to fourth and fifth year students (INSA Lyon, CS department) and to a class of international students.
+    More details soon. 
+    <ul>
+      <li>Artificial Intelligence: introduction to logic programming (PROLOG)</li>
+      <li>Artificial Intelligence: introduction to Semantic Web</li>
+      <li>Artificial Intelligence: introduction to machine learning and data mining</li>
+    </ul>
 
-<h2>Teaching</h2>
+
+
+    <h3>Attaché temporaire d'enseignement et de recherche (ATER, 2010-2011)<span class="tags"><span class="tag">96h</span></span></h3>
+    Département informatique de la faculté des sciences et technologies de l'université Henri Poincaré (Nancy 1) lors du premier semestre
+    de ma dernière année de préparation de thèse.
+    <ul>
+      <li>Conception et systèmes d'information, Licence 3, 4h CM, 16H TD/TP</li>
+      <li>Informatique pour scientifique, Licence 2, 20h TP</li>
+      <li>Préparation au C2I, Licence Science du vivant, 56h TP</li>
+    </ul>
+
+    <h3>Enseignements au CNAM<span class="tags"><span class="tag">100h</span></span></h3>
+    <p style="text-align: justify;">Le conservatoire national des arts et metiers propose une formation riche 
+      dans divers domaines, afin de permettre à ses auditeurs une ré-insertion professionnelle, une mise-à-niveau
+      des connaissances pour une possible promotion professionnelle, ou simplement pour repondre 
+      à l'intérêt de chacun. Elle prépare au titre d'ingénieur du CNAM, diplôme reconnu. J'ai dispensé 
+      pendant deux ans l'enseignement d'intelligence artificielle dans le dernier cycle du parcours. Ce cours
+      de 50 heures par an introduit les problematiques de l'intelligence artificielle et différentes manières de
+      formaliser et resoudre des problèmes. Merci à <a href="https://members.loria.fr/ANapoli/" target="_blank">Amedeo Napoli</a> pour les supports de qualité qu'il m'avait transmis.  
+    </p>
+
+    <h3>Moniteur au centre d'initiation à l'enseignement supérieur (CIES, 2008-2010)<span class="tags"><span class="tag">196h</span></span></h3>
+    <p style="text-align: justify;">Université Nancy 2, UFR de mathématiques et informatique.
+      <ul>
+        <li>Introduction à l'algorithmique, Lience 2 Sciences Cognitives, 15h TD, 15h TP</li>
+        <li>Systèmes d'exploitation, Licence 3 MIAGE, 32h TP</li>
+        <li>Programmation avancée JAVA, Master MIAGE, 62h TP</li>
+        <li>Préparation au C2I, Lience, 72h TP</li>
+      </ul>
+    </p>
+
+   
 </section>
 </div>
 
@@ -542,7 +761,7 @@ function toggleThesisDetails(event) {
   <a href="#conf">Conferences</a>
   <a href="#book">Book chapters</a>
   <a href="#editorial">Editorship</a>
-  <a href="#national">National conferences, Workshops</a>
+  <a href="#national">National/Workshops</a>
   <a href="#demos">Demos</a>
 </nav>
 
@@ -916,19 +1135,65 @@ function toggleThesisDetails(event) {
 </div>
 <!-- end zotero -->
 </div>
+
+<div class="container">
+  <!-- Contact Section -->
+  <section id="software">
+    <h2>Software</h2>
+    <h3>MinIntChange</h3>
+    <p>An algorithm to mine (frequent) closed numerical patterns and their generators (convex hulls)
+      <a href="https://github.com/mehdi-kaytoue/MinIntChange" target="_blank">https://github.com/mehdi-kaytoue/MinIntChange</a>
+    </p>
+
+    <h3>Sc2Gears4DM</h3>
+    <p>A plugin for SC2Gears that allows to generate various sequences mining algorithms
+      <a href="https://github.com/mehdi-kaytoue/Sc2Gears4DM" target="_blank">https://github.com/mehdi-kaytoue/Sc2Gears4DM</a>
+    </p>
+
+    <h3>Trimax</h3>
+    <p>TriMax algorithm for computing maximal biclusters of similar values
+      <a href="https://github.com/mehdi-kaytoue/trimax" target="_blank">https://github.com/mehdi-kaytoue/trimax</a>
+    </p>
+
+
+    <h3>Cosmic</h3>
+    <p>An algorithm for Mining Contextual Exceptional Subgraphs
+      <a href="https://github.com/mehdi-kaytoue/contextual-exceptional-subgraph-mining" target="_blank">https://github.com/mehdi-kaytoue/contextual-exceptional-subgraph-mining</a>
+    </p>
+
+    <h3>Balancespan</h3>
+    <p>Algorithms to mine balanced sequential patterns, jointly realized with Guillaume Bosc during his master studies</p>
+    <p>
+      <a href="https://guillaume-bosc.github.io/BalanceSpan/" target="_blank">Explanations</a> - 
+      <a href="https://github.com/guillaume-bosc/BalanceSpan" target="_blank">Code</a> 
+    </p>
+
+    <h3>Coron</h3>
+    <p>Coron is a data-mining suite of software for formal concept analysis and pattern mining created by Lazlso Szathmary. I contributed to the developments and dissemination.</p>
+    <p>
+      <a href="http://coron.loria.fr/" target="_blank">Webpage</a> - 
+      <a href="https://arxiv.org/abs/1111.5687" target="_blank">Prensation (in French)</a> 
+    </p>
+ 
+  </section>
+</div>
+
+
+
+
 <div class="container">
     <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
       <p>
         <!-- For collaborations, questions, or further information, feel free to reach out via: -->
-         Feel free to reach out via:
-      </p>
-      <ul>
+         Feel free to reach out via <a href="https://www.linkedin.com/in/mehdikaytoue/" target="_blank">LinkedIn</a>
+       </p>
+    <!-- <ul>
         <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mehdikaytoue/" target="_blank">Mehdi Kaytoue</a></li>
-        <!-- <li><strong>Twitter (X):</strong> <a href="https://twitter.com/MehdiKaytoue" target="_blank">@MehdiKaytoue</a></li> -->
-        <!-- <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li> -->
-      </ul>
+         <li><strong>Twitter (X):</strong> <a href="https://twitter.com/MehdiKaytoue" target="_blank">@MehdiKaytoue</a></li> 
+         <li><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></li> 
+      </ul> --> 
     </section>
   </div>
 
